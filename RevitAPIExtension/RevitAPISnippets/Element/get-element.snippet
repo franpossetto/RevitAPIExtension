@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<CodeSnippet Format="1.0.0">
+    <Header>
+        <Title>Basic Document and Application Objects</Title>
+        <Author>Francisco Possetto</Author>
+        <Description>Get Document,UI Document, Application and UI Application</Description>
+        <Shortcut>get</Shortcut>
+    </Header>
+    <Snippet>
+    <Import>
+        <Namespace>Autodesk.Revit.DB</Namespace>
+    </Import>
+    <Declarations>
+    <Literal Editable="true">
+        <ID>document</ID>
+        <ToolTip>document</ToolTip>
+        <Default>doc</Default>
+    </Literal> 
+    <Literal Editable="true">
+        <ID>element</ID>
+        <ToolTip>element</ToolTip>
+        <Default>element</Default>
+    </Literal>   
+    <Literal Editable="true">
+        <ID>elementId</ID>
+        <ToolTip>elementId</ToolTip>
+        <Default>elementId</Default>
+    </Literal>
+    </Declarations>
+    <Code Language="CSharp">
+        <![CDATA[
+        Element $element$ = $document$.GetElement($elementId$);
+        ]]>
+    </Code>
+    </Snippet>
+</CodeSnippet>
+</CodeSnippets>

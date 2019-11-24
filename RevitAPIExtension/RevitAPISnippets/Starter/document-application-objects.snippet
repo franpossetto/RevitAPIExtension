@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<CodeSnippet Format="1.0.0">
+    <Header>
+        <Title>Basic Document and Application Objects</Title>
+        <Author>Francisco Possetto</Author>
+        <Description>Get Document,UI Document, Application and UI Application</Description>
+        <Shortcut>docapp</Shortcut>
+    </Header>
+    <Snippet>
+    <Import>
+        <Namespace>Autodesk.Revit.DB</Namespace>
+    </Import>
+    <Declarations>
+    <Literal Editable="true">
+        <ID>document</ID>
+        <ToolTip>document</ToolTip>
+        <Default>docapp</Default>
+    </Literal> 
+    <Literal Editable="true">
+        <ID>application</ID>
+        <ToolTip>app</ToolTip>
+        <Default>app</Default>
+    </Literal>   
+    <Literal Editable="true">
+        <ID>uiDocument</ID>
+        <ToolTip>uiDoc</ToolTip>
+        <Default>uiDoc</Default>
+    </Literal>
+     <Literal Editable="true">
+        <ID>uiApplication</ID>
+        <ToolTip>uiApp</ToolTip>
+        <Default>uiApp</Default>
+    </Literal> 
+    </Declarations>
+    
+    <Code Language="CSharp">
+        <![CDATA[
+        UIApplication $uiApplication$ = commandData.Application;
+        UIDocument $uiDocument$ = uiApp.ActiveUIDocument;
+        Application $application$ = uiApp.Application;
+        Document $document$ = uiDoc.Document;
+        ]]>
+    </Code>
+    </Snippet>
+</CodeSnippet>
+</CodeSnippets>

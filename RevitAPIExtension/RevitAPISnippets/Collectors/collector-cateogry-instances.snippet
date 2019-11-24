@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<CodeSnippet Format="1.0.0">
+    <Header>
+        <Title>Collector-Category-Instances</Title>
+        <Author>Francisco Possetto</Author>
+        <Description>Get All elements of Category</Description>
+        <Shortcut>cl</Shortcut>
+    </Header>
+    <Snippet>
+    <Import>
+        <Namespace>Autodesk.Revit.DB</Namespace>
+    </Import>
+    <Declarations>
+    <Literal Editable="true">
+        <ID>document</ID>
+        <ToolTip>document</ToolTip>
+        <Default>doc</Default>
+    </Literal> 
+    <Literal Editable="true">
+        <ID>collector</ID>
+        <ToolTip>collector</ToolTip>
+        <Default>collector</Default>
+    </Literal>   
+    <Literal Editable="true">
+        <ID>category</ID>
+        <ToolTip>cateogry</ToolTip>
+        <Default>Wall</Default>
+    </Literal>
+    <Literal Editable="true">
+        <ID>builtin_category</ID>
+        <ToolTip>builtin_cateogry</ToolTip>
+        <Default>OST_Walls</Default>
+    </Literal>
+    </Declarations>
+    
+    <Code Language="CSharp">
+        <![CDATA[
+        IEnumerable<$category$> $collector$ = new FilteredElementCollector($document$)
+            .OfCategory(BuiltInCategory.$builtin_category$)
+            .WhereElementIsNotElementType()
+            .ToElements()
+            .Cast<$category$>();
+        
+        //You can see a list of BuiltinCategories for revit:
+        //https://www.revitapidocs.com/2019/ba1c5b30-242f-5fdc-8ea9-ec3b61e6e722.htm
+        ]]>
+    </Code>
+    </Snippet>
+</CodeSnippet>
+</CodeSnippets>

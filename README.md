@@ -3,11 +3,11 @@
 #### Revit API C# Snippets
 
 ```csharp
-IEnumerable<Category> collector = new FilteredElementCollector(Document)
-            .OfCategory(BuiltInCategory.MemberName
+IEnumerable<CATEGORY_HERE> collector = new FilteredElementCollector(DOCUMENT_HERE)
+            .OfCategory(BuiltInCategory.MEMBER_NAME_HERE)
             .WhereElementIsNotElementType()
             .ToElements()
-            .Cast<Category>();
+            .Cast<CATEGORY_HERE>();
 ```
 #### Snippets Summary
 

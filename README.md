@@ -24,7 +24,7 @@ Level levels = new FilteredElementCollector(doc)
 Use `cl` `collector-cat-types` to get all Family Types of certain Category. I'm using  `Walls` as Category, `doc` variable as Document and `OST_Walls` as BuiltInCategory Member Name.
 
 ```csharp
-IEnumerable<Walls> walls = new FilteredElementCollector(doc)
+IEnumerable<Walls> wallsTypes = new FilteredElementCollector(doc)
             .OfCategory(BuiltInCategory.OST_Walls)
             .WhereElementIsNotElementType()
             .ToElements()

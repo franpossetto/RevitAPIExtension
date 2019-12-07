@@ -17,7 +17,7 @@
 
 <br>
 
-#### Snippets - Code Samples
+#### Snippets Code Samples
 
 Use `cl` `collector` to create a collector. I'm using  `doc` variable as Document.
 ```csharp

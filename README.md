@@ -11,6 +11,10 @@
 |Collector| `cl`      | `collector-cat-instances`| Applies an ElementCategoryFilter  and ElementIsElementTypeFilter to the collector and returns Instances. |
 |Element| `get`      | `No multiple options`| Gets the Element referenced by the input ElementId. |
 |Model| `pi`      | `No multiple options`| Return the Project Information of the current project. |
+|Selection| `sl`      | `pick-object`| Prompts the user to select one object. |
+|Selection| `sl`      | `pick-objects`| Prompts the user to select multiple objects. |
+|Selection| `sl`      | `selection`| Retrieve the currently selected Elements in Autodesk Revit. |
+
 <br>
 
 #### Snippets - Code Samples
@@ -69,3 +73,23 @@ Use `pi` to get Project Information.
 ```csharp
 ProjectInfo pi = commandData.Application.ActiveUIDocument.Document.ProjectInformation;
 ```
+<br>
+
+Use `sl` `pick-object` to pick one element in Revit. I'm using uiDoc as UIDocument and `Element` as Object Type.
+```csharp
+Reference pickObject = uiDoc.Selection.PickObject(ObjectType.Element);
+```
+<br>
+
+Use `sl` `pick-objects` to pick one element in Revit. I'm using uiDoc as UIDocument and `Element` as Object Type.
+```csharp
+IList<Reference> pickObjects = uiDoc.Selection.PickObjects(ObjectType.Element);
+```
+
+<br>
+
+Use `sl` `pselection` to pick one element in Revit. I'm using uiDoc as UIDocument and `Element` as Object Type.
+```csharp
+Selection selection = uiDoc.Selection;
+```
+

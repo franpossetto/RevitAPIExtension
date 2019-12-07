@@ -3,6 +3,7 @@
 #### Revit API C# Snippets - Code Samples
 
 Use `cl` `collector-cat-instances` to get all elements of certain Category.
+ `Walls` as Category, `doc` variable as Document and `OST_Walls` as BuiltInCategory Member Name.
 
 ```csharp
 IEnumerable<Walls> collector = new FilteredElementCollector(doc)
@@ -11,7 +12,6 @@ IEnumerable<Walls> collector = new FilteredElementCollector(doc)
             .ToElements()
             .Cast<Walls>();
 ```
- `Walls` as Category, `doc` variable as Document and `OST_Walls` as BuiltInCategory Member Name.
 
 #### Snippets Summary
 

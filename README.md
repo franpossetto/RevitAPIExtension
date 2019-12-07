@@ -1,4 +1,38 @@
-### Visual Studio Revit API Extension
+## Visual Studio Revit API Extension
+
+#### File Templates 
+
+Create a new External Command
+```csharp
+using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using Autodesk.Revit.Attributes;
+
+namespace ConsoleApp1
+{
+    [Transaction(TransactionMode.Manual)]
+    public class RevitExternalCommand : IExternalCommand
+    {
+        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
+        {
+            try
+            {
+                Document doc = commandData.Application.ActiveUIDocument.Document;
+                UIDocument uidoc = commandData.Application.ActiveUIDocument;
+                return Autodesk.Revit.UI.Result.Succeeded;
+            }
+            catch
+            {
+                message = "Unexpected Exception thrown.";
+                return Autodesk.Revit.UI.Result.Failed;
+            }
+
+        }
+    }
+}
+```
+
+<br>
 
 #### Snippets Summary
 

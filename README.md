@@ -2,7 +2,7 @@
 
 #### Revit API C# Snippets - Code Samples
 
-##### `cl` `collector-cat-types` 
+Use ##### `cl` `collector-cat-instances` to get all elements of certain Category
 with `Walls` as Category, `doc` variable as Document and `OST_Walls` as BuiltInCategory Member Name.
 
 ```csharp

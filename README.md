@@ -2,16 +2,16 @@
 
 #### File Templates 
 
-Create a new `External Command`. NewExternalCommand is the Namespace and Command the Main Class.
+Create a new External Command. `RevitAddin` is the Namespace and `NewExternalCommand` the Class.
 ```csharp
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.Attributes;
 
-namespace NewExternalCommand
+namespace RevitAddin
 {
     [Transaction(TransactionMode.Manual)]
-    public class Command : IExternalCommand
+    public class NewExternalCommand : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
@@ -39,12 +39,12 @@ Create a new `Manifest` File to call an External Command.
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <RevitAddIns>
     <AddIn Type="Command">
-        <Name>RevitExternalCommand</Name>
-        <FullClassName>RevitExternalCommand.Command</FullClassName>
+        <Name>RevitAddin</Name>
+        <FullClassName>RevitAddin.RevitExternalCommand</FullClassName>
         <Text>RevitExternalCommand</Text>
         <Description>A new external Command for Revit</Description>
         <VisibilityMode>AlwaysVisible</VisibilityMode>
-        <Assembly>RevitExternalCommand.dll</Assembly>
+        <Assembly>RevitAddin.dll</Assembly>
         <AddInId>
             UNIQUE_GUID
         </AddInId>

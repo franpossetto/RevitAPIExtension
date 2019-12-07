@@ -2,7 +2,7 @@
 
 #### File Templates 
 
-Create a new External Command. `RevitAddin` is the Namespace and `NewExternalCommand` the Class.
+Create a new External Command. `RevitAddin` is the Namespace and is taken from tyour project. `NewExternalCommand` is the new the Class.
 ```csharp
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;

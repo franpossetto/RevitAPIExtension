@@ -15,8 +15,20 @@ Use `cl` `collector-class-first` to get an element from class by property. I'm u
 Level levels = new FilteredElementCollector(doc)
             .OfClass(typeof(Level))
             .Cast<Level>()
-            .Where(c => c.Name.Equals("LEVEL_NAME"))
+            .Where(c => c.Name.Equals(LEVEL_NAME))
             .FirstOrDefault();
+```
+
+<br>
+
+Use `cl` `collector-cat-types` to get all Family Types of certain Category. I'm using  `Walls` as Category, `doc` variable as Document and `OST_Walls` as BuiltInCategory Member Name.
+
+```csharp
+IEnumerable<Walls> walls = new FilteredElementCollector(doc)
+            .OfCategory(BuiltInCategory.OST_Walls)
+            .WhereElementIsNotElementType()
+            .ToElements()
+            .Cast<Walls>();
 ```
 
 <br>
@@ -26,7 +38,7 @@ Use `cl` `collector-cat-instances` to get all elements of certain Category. I'm 
 ```csharp
 IEnumerable<Walls> walls = new FilteredElementCollector(doc)
             .OfCategory(BuiltInCategory.OST_Walls)
-            .WhereElementIsNotElementType()
+            .WhereElementIsElementType()
             .ToElements()
             .Cast<Walls>();
 ```

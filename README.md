@@ -41,6 +41,8 @@ Use `tr` to Create a simple transaction. I'm using  `doc` variable as Document.
         }
 ```
 
+<br>
+
 Use `cl` `collector` to create a collector. I'm using  `doc` variable as Document.
 ```csharp
 FilteredElementCollector collector = new FilteredElementCollector(doc);

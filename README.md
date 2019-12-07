@@ -81,7 +81,7 @@ Reference pickObject = uiDoc.Selection.PickObject(ObjectType.Element);
 ```
 <br>
 
-Use `sl` `pick-objects` to pick one element in Revit. I'm using uiDoc as UIDocument and `Element` as Object Type.
+Use `sl` `pick-objects` to pick elements in Revit. I'm using uiDoc as UIDocument and `Element` as Object Type.
 ```csharp
 IList<Reference> pickObjects = uiDoc.Selection.PickObjects(ObjectType.Element);
 ```

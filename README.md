@@ -1,4 +1,9 @@
 ## Visual Studio Revit API Extension
+![](https://img.shields.io/github/stars/pandao/editor.md.svg)  ![]
+(https://img.shields.io/github/license/pandao/editor.md.svg) ![]
+(https://img.shields.io/github/forks/pandao/editor.md.svg)
+
+<br>
 
 #### File Templates 
 

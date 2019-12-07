@@ -38,18 +38,18 @@ Create a new Manifest File to call an External Command.
 ```xml
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <RevitAddIns>
-  <AddIn Type="Command">
-    <Name>RevitExternalCommand</Name>
-    <FullClassName>RevitExternalCommand.Command</FullClassName>
-    <Text>RevitExternalCommand</Text>
-    <Description>A new external Command for Revit</Description>
-    <VisibilityMode>AlwaysVisible</VisibilityMode>
-    <Assembly>RevitExternalCommand.dll</Assembly>
-    <AddInId>
-      086e2957-2e11-46ae-8a88-e06cfeab53f9
-    </AddInId>
+    <AddIn Type="Command">
+        <Name>RevitExternalCommand</Name>
+        <FullClassName>RevitExternalCommand.Command</FullClassName>
+        <Text>RevitExternalCommand</Text>
+        <Description>A new external Command for Revit</Description>
+        <VisibilityMode>AlwaysVisible</VisibilityMode>
+        <Assembly>RevitExternalCommand.dll</Assembly>
+        <AddInId>
+          UNIQUE_GUID
+        </AddInId>
     </AddIn>
-  </RevitAddIns>
+</RevitAddIns>
 ```
 
 <br>

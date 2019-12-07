@@ -1,7 +1,5 @@
 ### Visual Studio Revit API Extension
 
-<br>
-
 #### Snippets Summary
 
 | Category | Shortcut  | <div style="width:250px">Options</div> | Description |
@@ -14,8 +12,8 @@
 |Element| `get`      | `No multiple options`| Gets the Element referenced by the input ElementId. |
 
 <br>
-#### Revit API C# Snippets - Code Samples
-<br>
+
+#### Snippets - Code Samples
 
 Use `cl` `collector` to create a collector. I'm using  `doc` variable as Document.
 ```csharp

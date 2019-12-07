@@ -4,6 +4,8 @@
 
 | Category | Shortcut  | <div style="width:250px">Options</div> | Description |
 |-----|-----|-----|-----|
+|Starter| `docapp`      | `No Multiple Options`| Add Document, UIDocument, Application and UI Application objects. |
+|Transaction| `tr`      | `No Multiple Options`| Instantiates a transaction object. |
 |Collector| `cl`      | `collector`| Constructs a new FilteredElementCollector that will search and filter the set of elements in a document. |
 |Collector| `cl`      | `collector-class-types`| Applies an ElementClassFilter and ElementIsElementTypeFilter to the collector and returns Types. |
 |Collector| `cl`      | `collector-class-instances`| Applies an ElementClassFilter and ElementIsElementTypeFilter to the collector and returns Instances. |
@@ -18,6 +20,26 @@
 <br>
 
 #### Snippets Code Samples
+
+Use `docapp` to get Document,UI Document, Application and UI Application objects. 
+```csharp
+        UIApplication uiApp = commandData.Application;
+        UIDocument uiDoc = uiApp.ActiveUIDocument;
+        Application app = uiApp.Application;
+        Document doc = uiDoc.Document;
+```
+
+<br>
+
+Use `tr` to Create a simple transaction. I'm using  `doc` variable as Document.
+```csharp
+       using (Transaction t = new Transaction(doc, "Transaction TRANSACTION_NAME))
+        {
+            t.Start();
+            // DO something
+            t.Commit();
+        }
+```
 
 Use `cl` `collector` to create a collector. I'm using  `doc` variable as Document.
 ```csharp
@@ -92,4 +114,5 @@ Use `sl` `selection` to pick one element in Revit. I'm using uiDoc as UIDocument
 ```csharp
 Selection selection = uiDoc.Selection;
 ```
+
 

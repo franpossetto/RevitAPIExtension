@@ -34,6 +34,26 @@ namespace ConsoleApp1
 
 <br>
 
+Create a new Manifest File to call an External Command. 
+```csharp
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Name>RevitExternalCommand</Name>
+    <FullClassName>RevitExternalCommand.Command</FullClassName>
+    <Text>RevitExternalCommand</Text>
+    <Description>A new external Command for Revit</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <Assembly>RevitExternalCommand.dll</Assembly>
+    <AddInId>
+      086e2957-2e11-46ae-8a88-e06cfeab53f9
+    </AddInId>
+    </AddIn>
+  </RevitAddIns>
+```
+
+<br>
+
 #### Snippets Summary
 
 | Category | Shortcut  | <div style="width:250px">Options</div> | Description |

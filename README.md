@@ -8,11 +8,13 @@ FilteredElementCollector collector = new FilteredElementCollector(doc);
 ```
 <br>
 Use `cl` `collector-class-first` to get an element from class by property. I'm using  `Level` as Class, `Name` as property and `doc` variable as Document.
+```csharp
 Level levels = new FilteredElementCollector(doc)
             .OfClass(typeof(Level))
             .Cast<Level>()
             .Where(c => c.Name.Equals("LEVEL_NAME")
             .FirstOrDefault();
+```
 <br>
 Use `cl` `collector-cat-instances` to get all elements of certain Category. I'm using  `Walls` as Category, `doc` variable as Document and `OST_Walls` as BuiltInCategory Member Name.
 ```csharp

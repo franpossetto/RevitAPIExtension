@@ -10,7 +10,7 @@
 |Collector| `cl`      | `collector-cat-types`| Applies an ElementCategoryFilter  and ElementIsElementTypeFilter to the collector and returns Types. |
 |Collector| `cl`      | `collector-cat-instances`| Applies an ElementCategoryFilter  and ElementIsElementTypeFilter to the collector and returns Instances. |
 |Element| `get`      | `No multiple options`| Gets the Element referenced by the input ElementId. |
-|Element| `pi`      | `No multiple options`| Return the Project Information of the current project. |
+|Model| `pi`      | `No multiple options`| Return the Project Information of the current project. |
 <br>
 
 #### Snippets - Code Samples

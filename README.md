@@ -2,7 +2,7 @@
 
 #### File Templates 
 
-Create a new External Command
+Create a new `External Command`
 ```csharp
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
@@ -34,7 +34,7 @@ namespace ConsoleApp1
 
 <br>
 
-Create a new Manifest File to call an External Command. 
+Create a new `Manifest` File to call an External Command. 
 ```xml
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <RevitAddIns>

@@ -1,6 +1,5 @@
 ### Visual Studio Revit API Extension
 
-#### Revit API C# Snippets - Code Samples
 <br>
 
 #### Snippets Summary
@@ -15,9 +14,10 @@
 |Element| `get`      | `No multiple options`| Gets the Element referenced by the input ElementId. |
 
 <br>
+#### Revit API C# Snippets - Code Samples
+<br>
 
 Use `cl` `collector` to create a collector. I'm using  `doc` variable as Document.
-
 ```csharp
 FilteredElementCollector collector = new FilteredElementCollector(doc);
 ```

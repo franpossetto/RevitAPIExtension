@@ -10,7 +10,7 @@
 |Collector| `cl`      | `collector-cat-types`| Applies an ElementCategoryFilter  and ElementIsElementTypeFilter to the collector and returns Types. |
 |Collector| `cl`      | `collector-cat-instances`| Applies an ElementCategoryFilter  and ElementIsElementTypeFilter to the collector and returns Instances. |
 |Element| `get`      | `No multiple options`| Gets the Element referenced by the input ElementId. |
-
+|Element| `pi`      | `No multiple options`| Return the Project Information of the current project. |
 <br>
 
 #### Snippets - Code Samples
@@ -57,10 +57,15 @@ IEnumerable<Walls> walls = new FilteredElementCollector(doc)
 
 <br>
 
-Use `get` to getElement referenced by the input ElementId. I'm using  `doc` variable as Document.
+Use `get` to get Element referenced by the input ElementId. I'm using  `doc` variable as Document.
 
 ```csharp
 Element element = doc.GetElement(ELEMENT_ID);
 ```
 
+<br>
 
+Use `pi` to get Project Information.
+```csharp
+ProjectInfo pi = commandData.Application.ActiveUIDocument.Document.ProjectInformation;
+```

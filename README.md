@@ -2,7 +2,7 @@
 
 #### File Templates 
 
-Create a new External Command. I'm using `RevitAddin` as Namespace (but it will be taken from your project). `NewExternalCommand` is the name of your new file and the Class that implements IExternalCommand interface.
+Create a new External Command. I'm using `RevitAddin` as Namespace (but the name will be taken from your project). `NewExternalCommand` is the name of your new file and the Class that implements IExternalCommand interface.
 ```csharp
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
@@ -34,7 +34,8 @@ namespace RevitAddin
 
 <br>
 
-Create a new `Manifest` File to call an External Command. 
+Create a new `Manifest` File to call an External Command. 'm using `RevitAddin` as Namespace (but the name will be taken from your project)
+
 ```xml
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <RevitAddIns>

@@ -2,8 +2,12 @@
 
 #### Revit API C# Snippets
 
-```cs
-doc = uiApp.Document;
+```csharp
+IEnumerable<Category> collector = new FilteredElementCollector(Document)
+            .OfCategory(BuiltInCategory.MemberName
+            .WhereElementIsNotElementType()
+            .ToElements()
+            .Cast<Category>();
 ```
 #### Snippets Summary
 

@@ -2,16 +2,16 @@
 
 #### File Templates 
 
-Create a new `External Command`
+Create a new `External Command`. NewExternalCommand is the Namespace and Command the Main Class.
 ```csharp
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.Attributes;
 
-namespace ConsoleApp1
+namespace NewExternalCommand
 {
     [Transaction(TransactionMode.Manual)]
-    public class RevitExternalCommand : IExternalCommand
+    public class Command : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {

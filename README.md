@@ -33,7 +33,7 @@ Use `docapp` to get Document,UI Document, Application and UI Application objects
 
 Use `tr` to Create a simple transaction. I'm using  `doc` variable as Document.
 ```csharp
-       using (Transaction t = new Transaction(doc, "Transaction TRANSACTION_NAME))
+       using (Transaction t = new Transaction(doc, TRANSACTION_NAME))
         {
             t.Start();
             // DO something

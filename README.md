@@ -46,7 +46,7 @@ Create a new Manifest File to call an External Command.
         <VisibilityMode>AlwaysVisible</VisibilityMode>
         <Assembly>RevitExternalCommand.dll</Assembly>
         <AddInId>
-          UNIQUE_GUID
+            UNIQUE_GUID
         </AddInId>
     </AddIn>
 </RevitAddIns>

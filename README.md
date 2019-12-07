@@ -3,7 +3,7 @@
 #### Revit API C# Snippets - Code Samples
 
 ##### `cl` `collector-cat-types` 
-with "Walls" as Category, "doc" as Document and "OST_Walls" as Member name of BuiltInCategory.
+with `Walls` as Category, `doc` variable as Document and `OST_Walls` as BuiltInCategory Member Name.
 
 ```csharp
 IEnumerable<Walls> collector = new FilteredElementCollector(doc)

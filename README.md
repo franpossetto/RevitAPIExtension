@@ -1,13 +1,14 @@
 ### Visual Studio Revit API Extension
 
-#### Revit API C# Snippets
+#### Revit API C# Snippets - Code Samples
 
+##### `cl` - `collector-cat-types` with "Walls" as Category, "doc" as Document and "OST_Walls" as Member name of BuiltInCategory. 
 ```csharp
-IEnumerable<CATEGORY_HERE> collector = new FilteredElementCollector(DOCUMENT_HERE)
-            .OfCategory(BuiltInCategory.MEMBER_NAME_HERE)
+IEnumerable<Walls> collector = new FilteredElementCollector(doc)
+            .OfCategory(BuiltInCategory.OST_Walls)
             .WhereElementIsNotElementType()
             .ToElements()
-            .Cast<CATEGORY_HERE>();
+            .Cast<Walls>();
 ```
 #### Snippets Summary
 

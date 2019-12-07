@@ -11,7 +11,7 @@ IEnumerable<Category> collector = new FilteredElementCollector(Document)
 ```
 #### Snippets Summary
 
-| Category | Shortcut  | <div style="width:200px">Options</div> | Description |
+| Category | Shortcut  | <div style="width:250px">Options</div> | Description |
 |-----|-----|-----|-----|
 |Collector| `cl`      | `collector`| Constructs a new FilteredElementCollector that will search and filter the set of elements in a document. |
 |Collector| `cl`      | `collector-class-types`| Applies an ElementClassFilter and ElementIsElementTypeFilter to the collector and returns Types. |

@@ -15,7 +15,7 @@ Use `cl` `collector-class-first` to get an element from class by property. I'm u
 Level levels = new FilteredElementCollector(doc)
             .OfClass(typeof(Level))
             .Cast<Level>()
-            .Where(c => c.Name.Equals("LEVEL_NAME")
+            .Where(c => c.Name.Equals("LEVEL_NAME"))
             .FirstOrDefault();
 ```
 

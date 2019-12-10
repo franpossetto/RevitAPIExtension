@@ -1,59 +1,6 @@
 ## Visual Studio Revit API Extension
 
-#### File Templates 
 
-Create a new External Command. I'm using `RevitAddin` as Namespace (but the name will be taken from your project). `NewExternalCommand` is the name of your new file and the Class that implements IExternalCommand interface.
-```csharp
-using Autodesk.Revit.DB;
-using Autodesk.Revit.UI;
-using Autodesk.Revit.Attributes;
-
-namespace RevitAddin
-{
-    [Transaction(TransactionMode.Manual)]
-    public class NewExternalCommand : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
-        {
-            try
-            {
-                Document doc = commandData.Application.ActiveUIDocument.Document;
-                UIDocument uidoc = commandData.Application.ActiveUIDocument;
-                return Autodesk.Revit.UI.Result.Succeeded;
-            }
-            catch
-            {
-                message = "Unexpected Exception thrown.";
-                return Autodesk.Revit.UI.Result.Failed;
-            }
-
-        }
-    }
-}
-```
-
-<br>
-
-Create a new `Manifest` File to call an External Command. 'm using `RevitAddin` as Namespace (but the name will be taken from your project)
-
-```xml
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<RevitAddIns>
-    <AddIn Type="Command">
-        <Name>RevitAddin</Name>
-        <FullClassName>RevitAddin.RevitExternalCommand</FullClassName>
-        <Text>RevitExternalCommand</Text>
-        <Description>A new external Command for Revit</Description>
-        <VisibilityMode>AlwaysVisible</VisibilityMode>
-        <Assembly>RevitAddin.dll</Assembly>
-        <AddInId>
-            UNIQUE_GUID
-        </AddInId>
-    </AddIn>
-</RevitAddIns>
-```
-
-<br>
 
 #### Snippets Summary
 
@@ -171,5 +118,59 @@ Use `sl` `selection` to pick one element in Revit. I'm using uiDoc as UIDocument
 ```csharp
 Selection selection = uiDoc.Selection;
 ```
+<br>
 
+#### File Templates 
 
+Create a new External Command. I'm using `RevitAddin` as Namespace (but the name will be taken from your project). `NewExternalCommand` is the name of your new file and the Class that implements IExternalCommand interface.
+```csharp
+using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using Autodesk.Revit.Attributes;
+
+namespace RevitAddin
+{
+    [Transaction(TransactionMode.Manual)]
+    public class NewExternalCommand : IExternalCommand
+    {
+        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
+        {
+            try
+            {
+                Document doc = commandData.Application.ActiveUIDocument.Document;
+                UIDocument uidoc = commandData.Application.ActiveUIDocument;
+                return Autodesk.Revit.UI.Result.Succeeded;
+            }
+            catch
+            {
+                message = "Unexpected Exception thrown.";
+                return Autodesk.Revit.UI.Result.Failed;
+            }
+
+        }
+    }
+}
+```
+
+<br>
+
+Create a new `Manifest` File to call an External Command. 'm using `RevitAddin` as Namespace (but the name will be taken from your project)
+
+```xml
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+    <AddIn Type="Command">
+        <Name>RevitAddin</Name>
+        <FullClassName>RevitAddin.RevitExternalCommand</FullClassName>
+        <Text>RevitExternalCommand</Text>
+        <Description>A new external Command for Revit</Description>
+        <VisibilityMode>AlwaysVisible</VisibilityMode>
+        <Assembly>RevitAddin.dll</Assembly>
+        <AddInId>
+            UNIQUE_GUID
+        </AddInId>
+    </AddIn>
+</RevitAddIns>
+```
+
+<br>

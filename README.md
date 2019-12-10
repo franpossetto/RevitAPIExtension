@@ -121,7 +121,6 @@ Selection selection = uiDoc.Selection;
 <br>
 
 #### File Templates 
-<br>
 
 ##### External Command
 Create a new External Command. I'm using `RevitAddin` as Namespace (but the name will be taken from your project). `NewExternalCommand` is the name of your new file and the Class that implements IExternalCommand interface.
@@ -154,7 +153,7 @@ namespace RevitAddin
 }
 ```
 
-<br>
+
 
 ##### Manifest File
 Create a new `Addin Manifest` File to call an External Command. I'm using `RevitAddin` as Namespace (but the name will be taken from your project). The manifest includes information used by Revit to load and run the plug-in.

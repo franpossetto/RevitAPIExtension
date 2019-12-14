@@ -176,3 +176,19 @@ Create a new `Addin Manifest` File to call an External Command. I'm using `Revit
 ```
 
 <br>
+
+
+##### Project Templates
+Those are a couple of common project structures that you can use for start your project. All files not related with code are ignored on this Schemas.
+
+###### 1. Basic App
+This template create Three Push Buttons in the Ribbon Bar. You can start writting your code from scratch opening Extrnal Command Files.
+
+var routes = (
+  <Route name="Properties">
+    <Route name="AssemblyInfo.cs"/>
+     <Route name="icon.png"/>
+     <Route name="Resources.resx/>
+     <Route name="Resources.Designer.cs"/>
+  </Route>
+);

@@ -184,23 +184,16 @@ Those are a couple of common project structures that you can use for start your 
 ###### 1. Basic App
 This template create Three Push Buttons in the Ribbon Bar. You can start writting your code from scratch opening Extrnal Command Files.
 
-var routes = (
-  <Route name="Properties">
-    <Route name="AssemblyInfo.cs"/>
-     <Route name="icon.png"/>
-     <Route name="Resources.resx/>
-     <Route name="Resources.Designer.cs"/>
-  </Route>
-);
-                                        
-var routes = (
-  <Route name="App">
-    <Route name="Admin">
-      <Route name="Users"/>
-      <Route name="Reports"/>
-    </Route>
-    <Route name="Course">
-      <Route name="Assignments"/>
-    </Route>
-  </Route>
-);
+```bash
+app
+└── screens
+    └── App
+        └── screens
+            ├── Admin
+            │   └── screens
+            │       ├── Reports
+            │       └── Users
+            └── Course
+                └── screens
+                    └── Assignments
+```

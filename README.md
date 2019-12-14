@@ -185,15 +185,17 @@ Those are a couple of common project structures that you can use for start your 
 This template create Three Push Buttons in the Ribbon Bar. You can start writting your code from scratch opening Extrnal Command Files.
 
 ```bash
-app
-└── screens
-    └── App
-        └── screens
-            ├── Admin
-            │   └── screens
-            │       ├── Reports
-            │       └── Users
-            └── Course
-                └── screens
-                    └── Assignments
+RevitAddon
+└── Properties
+└── Reference
+    └── RevitAPI.dll
+    └── RevitAPIUI.dll
+└── ExternalApplication.cs
+└── ExternalCommands
+    └── ExternalCommand1.cs
+    └── ExternalCommand2.cs
+    └── ExternalCommand3.cs
+└── Utils
+    └── Ribbon.cs
+└── RevitAddon.addin.
 ```

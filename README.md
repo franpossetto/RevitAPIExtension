@@ -200,9 +200,10 @@ RevitAddon
     └── RevitAddon.addin.
 ```
 
-Also, set Revit.exe as External program to be execute on Debug Mode and copy this line as Post-build Event:
+On Properties, this template start Revit.exe as External program on Debug Start Action.
+Also copy this line as Post-build Event:
 ```bash
 copy "$(TargetDir)"."" "$(AppData)\Autodesk\Revit\Addins\REVIT_VERSION\"
 ```
-That copy files located on Debug folder. 
+That copy files located on Debug folder on Revit Addin Directory. 
 

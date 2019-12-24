@@ -113,7 +113,6 @@ namespace RevitAPIExtension
 
             DTE dte = (DTE)Package.GetGlobalService(typeof(DTE));
             string config = dte.Solution.SolutionBuild.ActiveConfiguration.Name;
-            dte.
             VsShellUtilities.ShowMessageBox(this.package, config, "title", OLEMSGICON.OLEMSGICON_INFO, OLEMSGBUTTON.OLEMSGBUTTON_OK, OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
         }
 

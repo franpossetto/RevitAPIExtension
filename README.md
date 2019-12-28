@@ -182,7 +182,7 @@ Create a new `Addin Manifest` File to call an External Command. I'm using `Revit
 Those are a couple of common project structures that you can use for start your project. All files not related with code are ignored on this Schemas.
 
 ###### 1. Basic App
-This template create Three Push Buttons in the Ribbon Bar. You can start writting your code opening Extrnal Command Files. This template add RevitAPI.dll and RevitAPIUI dll on your Reference. 
+This template create a Push Button in the Ribbon Bar. You can start writting your code opening Extrnal Command File. This template add RevitAPI.dll and RevitAPIUI dll on your Reference and Post-Build commands to handle Revit Versions and Deploy process. 
 
 ```bash
 RevitAddon
@@ -191,14 +191,27 @@ RevitAddon
         └── RevitAPI.dll
         └── RevitAPIUI.dll
     └── ExternalApplication.cs
-    └── ExternalCommands
-        └── ExternalCommand1.cs
-        └── ExternalCommand2.cs
-        └── ExternalCommand3.cs
+    └── ExternalCommand1.cs
     └── Utils
         └── Ribbon.cs
     └── RevitAddon.addin.
 ```
+
+
+###### 1. Event App
+This template create an Event Addin. You can start writting your code opening Extrnal Command File. This template add RevitAPI.dll and RevitAPIUI dll on your Reference and Post-Build commands to handle Revit Versions and Deploy process. 
+
+```bash
+RevitAddon
+    └── Properties
+    └── Reference
+        └── RevitAPI.dll
+        └── RevitAPIUI.dll
+    └── ExternalApplication.cs
+    └── ExternalCommand.cs
+    └── RevitAddon.addin.
+```
+
 
 On Properties, this template start Revit.exe as External program on Debug Start Action.
 Also copy this line as Post-build Event:

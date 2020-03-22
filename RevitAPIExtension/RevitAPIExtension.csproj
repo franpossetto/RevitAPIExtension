@@ -54,6 +54,7 @@
     <Compile Include="RevitAPIExtensionPackage.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TextFile1.txt" />
     <VSCTCompile Include="RevitAPIExtensionPackage.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
       <SubType>Designer</SubType>
@@ -107,18 +108,21 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="ItemTemplates\Revit Addin Manifest.zip">
+    <Content Include="ItemTemplates\RevitAddinManifest.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="ItemTemplates\Revit External Command.zip">
+    <Content Include="ItemTemplates\RevitExternalCommand.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="ProjectTemplates\Revit Push Button.zip">
+    <Content Include="ProjectTemplates\RevitPushButton.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <None Include="PT\RevitPushButton.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>

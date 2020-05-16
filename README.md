@@ -23,7 +23,7 @@
 
 #### Snippets Code Samples
 
-Use `docapp` to get Document,UI Document, Application and UI Application objects. 
+Use `revit` to get Document,UI Document, Application and UI Application objects. 
 ```csharp
         UIApplication uiApp = commandData.Application;
         UIDocument uiDoc = uiApp.ActiveUIDocument;

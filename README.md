@@ -7,6 +7,21 @@ This Extension provides Visual Studio Resources to help .NET Developers to Creat
 * Write Code faster using Code Snippets.
 * Improve and became faster your Deploy Process.
 
+### Project Templates
+#### Revit Push Button
+
+RevitPushButton
+    └── Properties
+    └── Reference
+        └── RevitAPI.dll
+        └── RevitAPIUI.dll
+    └── ExternalApplication.cs
+    └── ExternalCommand.cs
+    └── Utils
+        └── Ribbon.cs
+    └── RevitPushButton.addin
+
+
 #### Snippets Summary
 
 | Category | Shortcut  | <div style="width:250px">Options</div> | Description |

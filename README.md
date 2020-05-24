@@ -7,6 +7,7 @@ This Extension provides Visual Studio Resources to help .NET Developers to Creat
 * Write Code faster using Code Snippets.
 * Improve and became faster your Deploy Process.
 
+<br>
 ### Project Templates
 #### 1. Revit Command Add-in
 With this template you can create a Revit Push Button with a basic structure.

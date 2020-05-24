@@ -8,8 +8,7 @@ This Extension provides Visual Studio Resources to help .NET Developers to Creat
 * Improve and became faster your Deploy Process.
 
 ### Project Templates
-
-#### 1. Revit Command
+#### 1. Revit Command Add-in
 With this template you can create a Revit Push Button with a basic structure.
 
         └── RevitPushButton
@@ -36,8 +35,67 @@ With this template you can create an add-in and subscribe it to an event. In thi
                 ├── Ribbon.cs                   # this class contains methods to create ribbon items in revit.
                 └── Event.addin                 # manifest file
 
+<br>
 
-#### Snippets Summary
+#### File Templates 
+##### 1. External Command
+Create a new External Command. I'm using `RevitAddin` as Namespace (but the name will be taken from your project). `NewExternalCommand` is the name of your new file and the Class that implements IExternalCommand interface.
+```csharp
+using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using Autodesk.Revit.Attributes;
+
+namespace RevitAddin
+{
+    [Transaction(TransactionMode.Manual)]
+    public class NewExternalCommand : IExternalCommand
+    {
+        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
+        {
+            try
+            {
+                Document doc = commandData.Application.ActiveUIDocument.Document;
+                UIDocument uidoc = commandData.Application.ActiveUIDocument;
+                return Autodesk.Revit.UI.Result.Succeeded;
+            }
+            catch
+            {
+                message = "Unexpected Exception thrown.";
+                return Autodesk.Revit.UI.Result.Failed;
+            }
+
+        }
+    }
+}
+```
+
+
+
+##### 2. Manifest File
+Create a new `Addin Manifest` File to call an External Command. I'm using `RevitAddin` as Namespace (but the name will be taken from your project). The manifest includes information used by Revit to load and run the plug-in.
+
+```xml
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+    <AddIn Type="Command">
+        <Name>RevitAddin</Name>
+        <FullClassName>RevitAddin.RevitExternalCommand</FullClassName>
+        <Text>RevitExternalCommand</Text>
+        <Description>A new external Command for Revit</Description>
+        <VisibilityMode>AlwaysVisible</VisibilityMode>
+        <Assembly>RevitAddin.dll</Assembly>
+        <AddInId>
+            UNIQUE_GUID
+        </AddInId>
+    </AddIn>
+</RevitAddIns>
+```
+
+<br>
+
+### Code Snippets
+#### 1. Snippets Summary
+Use the following shorcuts to use the code snippets that provided this extension: `revit`, `tr`, `cl` `get`, `pi` and `sl`. Some of them  gruops more than one snippet.
 
 | Category | Shortcut  | <div style="width:250px">Options</div> | Description |
 |-----|-----|-----|-----|
@@ -56,7 +114,7 @@ With this template you can create an add-in and subscribe it to an event. In thi
 
 <br>
 
-#### Snippets Code Samples
+#### 2. Snippets Code Samples
 
 Use `revit` to get Document,UI Document, Application and UI Application objects. 
 ```csharp
@@ -153,65 +211,14 @@ Use `sl` `selection` to pick one element in Revit. I'm using uiDoc as UIDocument
 ```csharp
 Selection selection = uiDoc.Selection;
 ```
-<br>
-
-#### File Templates 
-
-##### External Command
-Create a new External Command. I'm using `RevitAddin` as Namespace (but the name will be taken from your project). `NewExternalCommand` is the name of your new file and the Class that implements IExternalCommand interface.
-```csharp
-using Autodesk.Revit.DB;
-using Autodesk.Revit.UI;
-using Autodesk.Revit.Attributes;
-
-namespace RevitAddin
-{
-    [Transaction(TransactionMode.Manual)]
-    public class NewExternalCommand : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
-        {
-            try
-            {
-                Document doc = commandData.Application.ActiveUIDocument.Document;
-                UIDocument uidoc = commandData.Application.ActiveUIDocument;
-                return Autodesk.Revit.UI.Result.Succeeded;
-            }
-            catch
-            {
-                message = "Unexpected Exception thrown.";
-                return Autodesk.Revit.UI.Result.Failed;
-            }
-
-        }
-    }
-}
-```
-
-
-
-##### Manifest File
-Create a new `Addin Manifest` File to call an External Command. I'm using `RevitAddin` as Namespace (but the name will be taken from your project). The manifest includes information used by Revit to load and run the plug-in.
-
-```xml
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<RevitAddIns>
-    <AddIn Type="Command">
-        <Name>RevitAddin</Name>
-        <FullClassName>RevitAddin.RevitExternalCommand</FullClassName>
-        <Text>RevitExternalCommand</Text>
-        <Description>A new external Command for Revit</Description>
-        <VisibilityMode>AlwaysVisible</VisibilityMode>
-        <Assembly>RevitAddin.dll</Assembly>
-        <AddInId>
-            UNIQUE_GUID
-        </AddInId>
-    </AddIn>
-</RevitAddIns>
-```
 
 <br>
 
+### Deployment process
+Some features were added to the extension in order to become faster the process to mantain every Add-in.
 
 
-
+#### 1. Configuration Manager
+Create custom configuration for each Revit version. You can have some variations
+#### 2. Post-Build Event Command Line
+Post built command to copy files in the correct location depending what you need.

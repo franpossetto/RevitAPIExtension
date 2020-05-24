@@ -1,6 +1,11 @@
 ## Visual Studio Revit API Extension
+This Extension provides Visual Studio Resources to help .NET Developers to Create different kind of Applications for Autodesk Revit.
 
-
+### With Revit API Extension, you can:
+* Create different kind of Plug-ins using Project Templates.
+* Create Typical Files using Item Templates.
+* Write Code faster using Code Snippets.
+* Improve and became faster your Deploy Process.
 
 #### Snippets Summary
 

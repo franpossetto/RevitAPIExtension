@@ -8,7 +8,9 @@ This Extension provides Visual Studio Resources to help .NET Developers to Creat
 * Improve and became faster your Deploy Process.
 
 ### Project Templates
-#### Revit Push Button
+
+#### 1. Revit Command
+With this template you can create a Revit Push Button with a basic structure.
 
         └── RevitPushButton
                 ├── Properties
@@ -19,6 +21,20 @@ This Extension provides Visual Studio Resources to help .NET Developers to Creat
                 ├── ExternalCommand.cs          # this file implement the interface IExtenralCommand
                 ├── Ribbon.cs                   # this class contains methods to create ribbon items in revit.
                 └── RevitPushButton.addin       # manifest file
+
+
+#### 2. Revit Event Add-in
+With this template you can create an add-in and subscribe it to an event. In this template I use `DocumentOpened` event.
+
+        └── RevitPushButton
+                ├── Properties
+                ├── Reference
+                    ├── RevitAPI.dll            
+                    └── RevitAPIUI.dll
+                ├── ExternalDBApplication.cs    # this file implement the interface IExtenralDBApplication
+                ├── EventCommand.cs             # this file implement the interface IExtenralCommand
+                ├── Ribbon.cs                   # this class contains methods to create ribbon items in revit.
+                └── Event.addin       # manifest file
 
 
 #### Snippets Summary

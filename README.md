@@ -34,7 +34,7 @@ With this template you can create an add-in and subscribe it to an event. In thi
                 ├── ExternalDBApplication.cs    # this file implement the interface IExtenralDBApplication
                 ├── EventCommand.cs             # this file implement the interface IExtenralCommand
                 ├── Ribbon.cs                   # this class contains methods to create ribbon items in revit.
-                └── Event.addin       # manifest file
+                └── Event.addin                 # manifest file
 
 
 #### Snippets Summary

@@ -10,15 +10,15 @@ This Extension provides Visual Studio Resources to help .NET Developers to Creat
 ### Project Templates
 #### Revit Push Button
 
-RevitPushButton
-    ├── Properties
-    ├── Reference
-        ├── RevitAPI.dll
-        └── RevitAPIUI.dll
-    ├── ExternalApplication.cs
-    ├── ExternalCommand.cs
-    ├── Ribbon.cs
-    └── RevitPushButton.addin
+└── RevitPushButton
+        ├── Properties
+        ├── Reference
+            ├── RevitAPI.dll
+            └── RevitAPIUI.dll
+        ├── ExternalApplication.cs
+        ├── ExternalCommand.cs
+        ├── Ribbon.cs
+        └── RevitPushButton.addin
 
 
 #### Snippets Summary

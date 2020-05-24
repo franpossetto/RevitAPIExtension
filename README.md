@@ -37,8 +37,8 @@ With this template you can create an add-in and subscribe it to an event. In thi
 
 <br>
 
-#### File Templates 
-##### 1. External Command
+### File Templates 
+#### 1. External Command
 Create a new External Command. I'm using `RevitAddin` as Namespace (but the name will be taken from your project). `NewExternalCommand` is the name of your new file and the Class that implements IExternalCommand interface.
 ```csharp
 using Autodesk.Revit.DB;
@@ -71,7 +71,7 @@ namespace RevitAddin
 
 
 
-##### 2. Manifest File
+#### 2. Manifest File
 Create a new `Addin Manifest` File to call an External Command. I'm using `RevitAddin` as Namespace (but the name will be taken from your project). The manifest includes information used by Revit to load and run the plug-in.
 
 ```xml
@@ -216,7 +216,6 @@ Selection selection = uiDoc.Selection;
 
 ### Deployment process
 Some features were added to the extension in order to become faster the process to mantain every Add-in.
-
 
 #### 1. Configuration Manager
 Create custom configuration for each Revit version. You can have some variations

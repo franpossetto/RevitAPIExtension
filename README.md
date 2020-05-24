@@ -13,12 +13,12 @@ This Extension provides Visual Studio Resources to help .NET Developers to Creat
         └── RevitPushButton
                 ├── Properties
                 ├── Reference
-                    ├── RevitAPI.dll
+                    ├── RevitAPI.dll            
                     └── RevitAPIUI.dll
-                ├── ExternalApplication.cs
-                ├── ExternalCommand.cs
-                ├── Ribbon.cs
-                └── RevitPushButton.addin
+                ├── ExternalApplication.cs      # this file implement the interface IExtenralApplication
+                ├── ExternalCommand.cs          # this file implement the interface IExtenralCommand
+                ├── Ribbon.cs                   # this class contains methods to create ribbon items in revit.
+                └── RevitPushButton.addin       # manifest file
 
 
 #### Snippets Summary

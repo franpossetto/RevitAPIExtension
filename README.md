@@ -1,18 +1,20 @@
 ## Visual Studio Revit API Extension
 This Extension provides Visual Studio Resources to help .NET Developers to Create different kind of Applications for Autodesk Revit.
+Tested on Visual Studio 2017 | Revit 2017, Revit 2018, Revit 2019 and Revit 2020
 
-### With Revit API Extension, you can:
-* Create different kind of Plug-ins using Project Templates.
+### With this extension, you can:
+* Create different kind of Revit Plug-ins using Project Templates.
 * Create Typical Files using Item Templates.
 * Write Code faster using Code Snippets.
-* Improve and became faster your Deploy Process.
+* Improve and become faster your Deploy Process. 
 
 <br>
+
 ### Project Templates
 #### 1. Revit Command Add-in
 With this template you can create a Revit Push Button with a basic structure.
 
-        └── RevitPushButton
+        └── RevitAddin
                 ├── Properties
                 ├── Reference
                     ├── RevitAPI.dll            
@@ -20,21 +22,19 @@ With this template you can create a Revit Push Button with a basic structure.
                 ├── ExternalApplication.cs      # this file implement the interface IExtenralApplication
                 ├── ExternalCommand.cs          # this file implement the interface IExtenralCommand
                 ├── Ribbon.cs                   # this class contains methods to create ribbon items in revit.
-                └── RevitPushButton.addin       # manifest file
+                └── RevitAddin.addin            # manifest file
 
 
-#### 2. Revit Event Add-in
+#### 2. Revit DB Application Add-in
 With this template you can create an add-in and subscribe it to an event. In this template I use `DocumentOpened` event.
 
-        └── RevitPushButton
+        └── RevitAddin
                 ├── Properties
                 ├── Reference
                     ├── RevitAPI.dll            
                     └── RevitAPIUI.dll
                 ├── ExternalDBApplication.cs    # this file implement the interface IExtenralDBApplication
-                ├── EventCommand.cs             # this file implement the interface IExtenralCommand
-                ├── Ribbon.cs                   # this class contains methods to create ribbon items in revit.
-                └── Event.addin                 # manifest file
+                └── RevitAddin.addin            # manifest file
 
 <br>
 

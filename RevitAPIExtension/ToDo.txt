@@ -1,0 +1,3 @@
+﻿1. add template to the project before.
+2. no spaces in the name.
+3. To change icon go to vsct file and modify the path. also delete all bmpPic except 1.

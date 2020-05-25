@@ -1,2 +1,0 @@
-﻿1. add template to the project before.
-2. no spaces in the name.

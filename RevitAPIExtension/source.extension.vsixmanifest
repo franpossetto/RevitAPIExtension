@@ -19,5 +19,6 @@
         <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File" Path="RevitAPISnippets\RevitAPISnippets.pkgdef" />
         <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="File" Path="ItemTemplates" d:TargetPath="ItemTemplates\Revit Addin Manifest.zip" />
         <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\RevitPushButton.zip" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" TargetVersion="" d:TargetPath="ProjectTemplates\Revit_DBApplication.zip" />
     </Assets>
 </PackageManifest>

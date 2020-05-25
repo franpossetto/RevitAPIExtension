@@ -1,6 +1,5 @@
 ## Visual Studio Revit API Extension
 This Extension provides Visual Studio Resources to help .NET Developers to Create different kind of Applications for Autodesk Revit.
-<br>
 Tested on Visual Studio 2017 | Revit 2017, Revit 2018, Revit 2019 and Revit 2020
 
 ### With this extension, you can:

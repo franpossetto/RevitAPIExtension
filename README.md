@@ -40,7 +40,8 @@ With this template you can create an add-in and subscribe it to an event. In thi
 
 ### File Templates 
 #### 1. External Command
-Create a new External Command. I'm using `RevitAddin` as Namespace (but the name will be taken from your project). `NewExternalCommand` is the name of your new file and the Class that implements IExternalCommand interface.
+Create a new External Command. I'm using `RevitAddin` as Namespace. `ExtCmd` Class implements IExternalCommand interface.
+
 ```csharp
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
@@ -49,7 +50,7 @@ using Autodesk.Revit.Attributes;
 namespace RevitAddin
 {
     [Transaction(TransactionMode.Manual)]
-    public class NewExternalCommand : IExternalCommand
+    public class ExtCmd : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
@@ -73,14 +74,14 @@ namespace RevitAddin
 
 
 #### 2. Manifest File
-Create a new `Addin Manifest` File to call an External Command. I'm using `RevitAddin` as Namespace (but the name will be taken from your project). The manifest includes information used by Revit to load and run the plug-in.
+Create a new `Addin Manifest`. In this sample I´m calling an ExternalCommand called `ExtCmd` The manifest includes information used by Revit to load and run the plug-in.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <RevitAddIns>
     <AddIn Type="Command">
         <Name>RevitAddin</Name>
-        <FullClassName>RevitAddin.RevitExternalCommand</FullClassName>
+        <FullClassName>RevitAddin.ExtCmd</FullClassName>
         <Text>RevitExternalCommand</Text>
         <Description>A new external Command for Revit</Description>
         <VisibilityMode>AlwaysVisible</VisibilityMode>

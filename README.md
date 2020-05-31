@@ -1,5 +1,8 @@
 ## Visual Studio Revit API Extension
 
+![Revit API](https://img.shields.io/badge/RevitAPI-2017-blue.svg)
+![Revit API](https://img.shields.io/badge/RevitAPI-2018-blue.svg)
+![Revit API](https://img.shields.io/badge/RevitAPI-2019-blue.svg)
 ![Revit API](https://img.shields.io/badge/RevitAPI-2020-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows-lightgray.svg)
 ![.NET](https://img.shields.io/badge/.NET-4.7-green.svg)

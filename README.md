@@ -6,7 +6,7 @@
 ![Revit API](https://img.shields.io/badge/Revit%20API-2017-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows-lightgray.svg)
 ![.NET](https://img.shields.io/badge/.NET-4.7-green.svg)
-![VisualStudio](https://img.shields.io/badge/VisualStudio-4.7-purple.svg)
+![VisualStudio](https://img.shields.io/badge/VisualStudio-2017-purple.svg)
 
 
 This Extension provides Visual Studio Resources to help .NET Developers to Create different kind of Applications for Autodesk Revit.

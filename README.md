@@ -1,4 +1,13 @@
 ## Visual Studio Revit API Extension
+
+![.NET](https://img.shields.io/badge/.NET-4.7-green.svg)
+![VisualStudio](https://img.shields.io/badge/VisualStudio-2017-purple.svg)
+![VisualStudio](https://img.shields.io/badge/VisualStudio-2019-purple.svg)
+![Revit API](https://img.shields.io/badge/RevitAPI-2017-blue.svg)
+![Revit API](https://img.shields.io/badge/RevitAPI-2018-blue.svg)
+![Revit API](https://img.shields.io/badge/RevitAPI-2019-blue.svg)
+![Revit API](https://img.shields.io/badge/RevitAPI-2020-blue.svg)
+
 This Extension provides Visual Studio Resources to help .NET Developers to Create different kind of Applications for Autodesk Revit.
 Tested on Visual Studio 2017.
 

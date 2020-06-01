@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Check Revit Version</Title>
+      <Author>Francisco Possetto</Author>
+      <Description>Check Revit Version</Description>
+      <Shortcut>revit</Shortcut>
+    </Header>
+    <Snippet>
+      <Import>
+        <Namespace>Autodesk.Revit.UI</Namespace>
+        <Namespace>Autodesk.Revit.DB</Namespace>
+      </Import>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>version</ID>
+          <ToolTip>2020</ToolTip>
+          <Default>2020</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp">
+        <![CDATA[
+        commandData.Application.Application.VersionName.Contains($version$)
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
+
+
+
+
+
+

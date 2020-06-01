@@ -118,6 +118,7 @@
     </Content>
     <Content Include="RevitAPISnippets\Starter\document-application-objects.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="ProjectTemplates\Revit_Event_Application.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -148,8 +149,9 @@
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="RevitAPISnippets\Starter\revit-version.snippet">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="ProjectTemplates\Revit_Command.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

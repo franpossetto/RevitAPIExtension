@@ -30,7 +30,7 @@ Tested on Visual Studio 2017.
 * External Command: Create a new External Command
 
 ### Code Snippets
-#### 1. Snippets Summary
+#### Snippets Summary
 Use the following shorcuts to use the code snippets that provided this extension: `revit`, `tr`, `cl` `get`, `pi` and `sl`. Some of them  gruops more than one snippet.
 
 | Category | Shortcut  | <div style="width:250px">Options</div> | Description |

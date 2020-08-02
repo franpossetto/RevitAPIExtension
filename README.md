@@ -20,15 +20,9 @@ Tested on Visual Studio 2017.
 <br>
 
 ### Project Templates
-#### 1. Revit Command
-Create a Revit Command with a Push Button in the Ribbon Bar
-
-#### 2. Revit Event DB Application
-Create a Revit DB Application associated to DocumentOpened Event Handler
-
-#### 3. Revit Event Application
-Create a Revit Application associated to DocumentOpened Event Handler
-
+* Revit Command: Create a Revit Command with a Push Button in the Ribbon Bar
+* Revit Event DB Application: Create a Revit DB Application associated to DocumentOpened Event Handler
+* Revit Event Application: Create a Revit Application associated to DocumentOpened Event Handler
 <br>
 
 ### File Templates 

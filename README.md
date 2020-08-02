@@ -17,31 +17,17 @@ Tested on Visual Studio 2017.
 * Write Code faster using Code Snippets.
 * Improve and become faster your Deploy Process. 
 
-<br>
-
 ### Project Templates
 * Revit Command: Create a Revit Command with a Push Button in the Ribbon Bar
 * Revit Event DB Application: Create a Revit DB Application associated to DocumentOpened Event Handler
 * Revit Event Application: Create a Revit Application associated to DocumentOpened Event Handler
-<br>
 
 ### File Templates 
-#### 1. Application Manifest
-Create a new Application Manifest for your Revit Add-in
-
-#### 2. DBApplication Manifest
-Create a new DBApplication Manifest for your Revit Add-in
-
-#### 3. Command Manifest
-Create a new Command Manifest for your Revit Add-in
-
-#### 4. External Application
-Create a new External Application
-
-#### 5. External Command
-Create a new External Command
-
-<br>
+* Application Manifest: Create a new Application Manifest for your Revit Add-in
+* DBApplication Manifest: Create a new DBApplication Manifest for your Revit Add-in
+* Command Manifest: Create a new Command Manifest for your Revit Add-in
+* External Application: Create a new External Application
+* External Command: Create a new External Command
 
 ### Code Snippets
 #### 1. Snippets Summary
@@ -63,12 +49,8 @@ Use the following shorcuts to use the code snippets that provided this extension
 |Selection| `sl`      | `pick-objects`| Prompts the user to select multiple objects. |
 |Selection| `sl`      | `selection`| Retrieve the currently selected Elements in Autodesk Revit. |
 
-<br>
-
 ### Deployment process
 Some features were added to the extension in order to become faster the process to mantain every Add-in.
 
-#### 1. Configuration Manager
-Create custom configuration for each Revit version. You can have some variations
-#### 2. Post-Build Event Command Line
-Post built command to copy files in the correct location depending what you need.
+* Configuration Manager: Create custom configuration for each Revit version. You can have some variations
+* Post-Build Event Command Line: Post built command to copy files in the correct location depending what you need.

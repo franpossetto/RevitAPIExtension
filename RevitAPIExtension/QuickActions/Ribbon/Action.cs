@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace RevitAPIExtension.QuickActions.Ribbon
 {
-    class Action : ISuggestedActionsSource
+    internal class Action : ISuggestedActionsSource
     {
         private readonly Provider m_factory;
         private readonly ITextBuffer m_textBuffer;

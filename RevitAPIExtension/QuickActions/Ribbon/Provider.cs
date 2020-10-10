@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 namespace RevitAPIExtension.QuickActions.Ribbon
 {
     [Export(typeof(ISuggestedActionsSourceProvider))]
-    [Name("Test Suggested Actions")]
-    [ContentType("text")]
-    class Provider : ISuggestedActionsSourceProvider
+    [Name("CodeGen")]
+    [ContentType("code")]
+    internal class Provider : ISuggestedActionsSourceProvider
     {
         [Import(typeof(ITextStructureNavigatorSelectorService))]
         internal ITextStructureNavigatorSelectorService NavigatorService { get; set; }

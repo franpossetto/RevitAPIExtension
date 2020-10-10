@@ -15,7 +15,7 @@ using Task = System.Threading.Tasks.Task;
 
 namespace RevitAPIExtension.QuickActions.Ribbon
 {
-    class Code : ISuggestedAction
+    internal class Code : ISuggestedAction
     {
         private string m_display;
         public bool HasActionSets

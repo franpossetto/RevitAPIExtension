@@ -61,7 +61,7 @@ namespace RevitAPIExtension.QuickActions.Ribbon
             {
                 string className = match.Groups["className"].Value;
                 var codeGenAction = new Code(className);
-                return new SuggestedActionSet[] { new SuggestedActionSet("code generation", new ISuggestedAction[] { codeGenAction }) };
+                return new SuggestedActionSet[] { new SuggestedActionSet(new ISuggestedAction[] { codeGenAction }) };
             }
             return Enumerable.Empty<SuggestedActionSet>();
         }
@@ -73,8 +73,8 @@ namespace RevitAPIExtension.QuickActions.Ribbon
         public bool TryGetTelemetryId(out Guid telemetryId)
         {
             // This is a sample provider and doesn't participate in LightBulb telemetry
-            telemetryId = Guid.Empty;
-            return false;
+            telemetryId = Guid.Parse(RevitAPIExtensionPackage.PackageGuidString);
+            return true;
         }
     }
 }

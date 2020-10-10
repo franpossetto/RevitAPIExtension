@@ -76,8 +76,8 @@ namespace RevitAPIExtension.QuickActions.Ribbon
         }
         public bool TryGetTelemetryId(out Guid telemetryId)
         {
-            telemetryId = Guid.Empty;
-            return false;
+            telemetryId = Guid.Parse(RevitAPIExtensionPackage.PackageGuidString);
+            return true;
         }
     }
 }

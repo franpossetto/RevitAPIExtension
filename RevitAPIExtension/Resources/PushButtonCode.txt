@@ -1,0 +1,4 @@
+﻿#region $Unique_Name$
+PushButtonData $Var_Data$ = new PushButtonData("$Unique_Name$", "$Label$", assemblyPath, "$Class_Name$");
+PushButton $Var_Button$ = panel.AddItem($Var_Data$) as PushButton;
+#endregion $Unique_Name$

@@ -1,5 +1,6 @@
 ﻿using EnvDTE;
 using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio.Text.Outlining;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -44,30 +45,63 @@ namespace RevitAPIExtension.QuickActions.Ribbon
         private static void InsertCode(ProjectItems items, string name)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
-            var extensionItem = items.Find(i => i.Name == "RibbonBundle.cs");
-            if (extensionItem is null)
+            var panelItem = items.Find(item => item.Name == "AddinsPanel.cs");
+            if (panelItem is null)
                 return;
-            var windowItem = extensionItem.Open();
-            var selection = extensionItem.Document.Selection as TextSelection;
+            var windowItem = panelItem.Open();
+            var selection = panelItem.Document.Selection as TextSelection;
             selection.SelectAll();
-            var regex = new Regex(@"#region(?> |\t)*(?'name'.*)$(?'content'(.|\n)*?)#endregion", RegexOptions.Multiline);
+            var regex = new Regex(@"#region(?: |\t)*(?<name>.*)$(?<content>(.|\n)*?)#endregion(?: |\t)*\k<name>", RegexOptions.Multiline);
+            var matches = regex.Matches(selection.Text);
+            var regions = new List<RegionData>();
             foreach (Match match in regex.Matches(selection.Text))
             {
-                string section = match.Groups["name"].Value;
-                if(section.StartsWith("Revit Push Buttons"))
-                {
-                    int i = match.Groups["content"].Index;
-                    string textFirst = selection.Text.Substring(0, i + 1);
-                    string code = $"\r\n//Button Code for {name}\r\n";
-                    string textLast = selection.Text.Substring(i);
-                    selection.Insert(textFirst + code + textLast);
-                    selection.SelectAll();
-                    selection.SmartFormat();
-                    break;
-                }
+                regions.Add(new RegionData(match.Groups["name"], match.Groups["content"], match.Index, match.Length));
             }
-            extensionItem.Document.Save();
+            SetPushButton(regions, name, selection);
+            panelItem.Document.Save();
             windowItem.Close();
+        }
+        private static void SetPushButton(List<RegionData> regions, string name, TextSelection selection)
+        {
+            var pushButtonRegion = regions.Single(r => r.Name.Value.StartsWith("PushButtons"));
+            int i = pushButtonRegion.Content.Index;
+            RemoveIfExist(pushButtonRegion, selection, name);
+            string textFirst = selection.Text.Substring(0, i + 1); //++1 para tomar el \n del inicio
+            var code = GetPushButtonCode(name);
+            string textLast = selection.Text.Substring(i +1);
+            selection.Insert(textFirst + code + textLast);
+            selection.SelectAll();
+            selection.SmartFormat();
+        }
+        private static void RemoveIfExist(RegionData region, TextSelection selection, string name)
+        {
+            var regex = new Regex(@"#region(?: |\t)*(?<name>.*)$(?<content>(.|\n)*?)#endregion(?: |\t)*\k<name>", RegexOptions.Multiline);
+            var subRegions = new List<RegionData>();
+            foreach (Match match in regex.Matches(region.Content.Value))
+            {
+                subRegions.Add(new RegionData(match.Groups["name"], match.Groups["content"], match.Index, match.Length));
+            }
+            var oldRegion = subRegions.SingleOrDefault(r => r.Name.Value.StartsWith(name));
+            if (oldRegion != null)
+            {
+                int i = region.Content.Index + oldRegion.Index;
+                int x = i + oldRegion.Length;
+                string textFirst = selection.Text.Substring(0, i);
+                string textLast = selection.Text.Substring(x + 1);
+                selection.Insert(textFirst + textLast);
+                selection.SelectAll();
+            }
+        }
+        private static string GetPushButtonCode(string name)
+        {
+            string template = File.ReadAllText(Directory.GetCurrentDirectory() + @"\Resources\PushButtonCode.txt");
+            string code = template.Replace("$Unique_Name$", name);
+            code = code.Replace("$Label$", name);
+            code = code.Replace("$Class_Name$", name);
+            code = code.Replace("$Var_Data$", name + "Data");
+            code = code.Replace("$Var_Button$", name + "Button");
+            return code;
         }
         private static ProjectItem GetAddin(ProjectItems items)
         {
@@ -82,10 +116,10 @@ namespace RevitAPIExtension.QuickActions.Ribbon
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             var items = project.ProjectItems;
-            bool exists = items.Exist(item => item.Name == "RibbonBundle.cs");
+            bool exists = items.Exist(item => item.Name == "AddinsPanel.cs");
             if (!exists)
             {
-                items.AddFromFileCopy(Directory.GetCurrentDirectory() + @"\Resources\RibbonBundle.cs");//Agregar archivo
+                items.AddFromFileCopy(Directory.GetCurrentDirectory() + @"\Resources\AddinsPanel.cs");//Agregar archivo
                 isNew = true;
             }
             else
@@ -164,10 +198,10 @@ namespace RevitAPIExtension.QuickActions.Ribbon
             {
                 if (mach.Index > range.StartIndex && mach.Index < range.EndIndex)
                 {
-                    string _using = "using Revit_Commands;\n";
+                    string _using = "using RevitAPIExtension.Resources;\r\n";
                     string first = selectionStartup.Text.Substring(0, mach.Index + 1);
-                    string code = "\nRibbonBundle.Run(application);\n";
-                    string last = selectionStartup.Text.Substring(mach.Index);
+                    string code = "\r\nAddinsPanel.Build(application, null);\r\n";
+                    string last = selectionStartup.Text.Substring(mach.Index + 1);
                     selectionStartup.Insert(_using + first + code + last);
                     selectionStartup.SelectAll();
                     selectionStartup.SmartFormat();
@@ -187,5 +221,19 @@ namespace RevitAPIExtension.QuickActions.Ribbon
             this.EndIndex = end;
         }
 
+    }
+    class RegionData
+    {
+        public Group Name { get; set; }
+        public Group Content { get; set; }
+        public int Index { get; set; }
+        public int Length { get; set; }
+        public RegionData(Group name, Group content, int index, int length)
+        {
+            Name = name;
+            Content = content;
+            Index = index;
+            Length = length;
+        }
     }
 }

@@ -61,9 +61,21 @@
     <Compile Include="QuickActions\Ribbon\Code.cs" />
     <Compile Include="QuickActions\Ribbon\CodeGen.cs" />
     <Compile Include="QuickActions\Ribbon\Provider.cs" />
+    <Content Include="Resources\PushButtonCode.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Resources\PanelCode.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="Resources\RibbonBundle.cs">
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\AddinsPanel.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Compile Include="RevitAPIExtensionPackage.cs" />
   </ItemGroup>

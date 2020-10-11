@@ -1,0 +1,3 @@
+﻿RibbonPanel $Var_Panel$ = application.GetRibbonPanels(tabName)
+	.FirstOrDefault(p => p.Name.Equals("$Panel_Name$", StringComparison.InvariantCulture));
+$Var_Panel$ = $Var_Panel$ ?? (tabName is null ? application.CreateRibbonPanel("$Panel_Name$") : application.CreateRibbonPanel(tabName, "$Panel_Name$"));

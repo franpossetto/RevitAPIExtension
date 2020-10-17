@@ -9,7 +9,6 @@
 ![Revit API](https://img.shields.io/badge/RevitAPI-2020-blue.svg)
 
 This Extension provides Visual Studio Resources to help .NET Developers to Create different kind of Applications for Autodesk Revit.
-Tested on Visual Studio 2017.
 
 ### With this extension, you can:
 * Create different kind of Revit Plug-ins using Project Templates.

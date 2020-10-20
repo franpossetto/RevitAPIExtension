@@ -55,12 +55,28 @@
     <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Commands\CodeGen\CodeGenCommand.cs" />
+    <Compile Include="Interfaces\CodeGenUI.xaml.cs">
+      <DependentUpon>CodeGenUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ButtonReference.cs" />
+    <Compile Include="Models\ButtonType.cs" />
+    <Compile Include="Models\CodeGenData.cs" />
+    <Compile Include="Models\PanelFile.cs" />
+    <Compile Include="Models\RangeString.cs" />
+    <Compile Include="Models\RegionData.cs" />
+    <Compile Include="Models\UIDefaultData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuickActions\Helpers.cs" />
+    <Compile Include="Commands\CodeGen\Helpers.cs" />
     <Compile Include="QuickActions\Ribbon\Action.cs" />
     <Compile Include="QuickActions\Ribbon\Code.cs" />
-    <Compile Include="QuickActions\Ribbon\CodeGen.cs" />
+    <Compile Include="Commands\CodeGen\CodeGen.cs" />
     <Compile Include="QuickActions\Ribbon\Provider.cs" />
+    <Content Include="Commands\Resources\CodeGenCommand.png" />
+    <Content Include="Resources\PullDownButtonCode.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="Resources\PushButtonCode.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
@@ -73,7 +89,7 @@
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\AddinsPanel.cs">
+    <Content Include="Resources\Addins.Panel.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
@@ -189,20 +205,6 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.VisualStudio.CoreUtility, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-    <Reference Include="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="Microsoft.VisualStudio.Language.Intellisense, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <Private>False</Private>
-      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\Editor\Microsoft.VisualStudio.Language.Intellisense.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.VisualStudio.Shell.15.0, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.VisualStudio.Shell.Framework, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-    <Reference Include="Microsoft.VisualStudio.Text.Data, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-    <Reference Include="Microsoft.VisualStudio.Text.Logic, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.VisualStudio.Text.UI, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.VisualStudio.Threading, Version=15.8.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -216,6 +218,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.SDK">
+      <Version>16.0.206</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VSSDK.BuildTools">
+      <Version>16.9.9</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="WindowsBase">
       <Version>4.6.1055</Version>
     </PackageReference>
@@ -225,6 +235,12 @@
     <Folder Include="RevitAPISnippets\Document\" />
     <Folder Include="RevitAPISnippets\Events\" />
     <Folder Include="RevitAPISnippets\Ribbon\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Interfaces\CodeGenUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />

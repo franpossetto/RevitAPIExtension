@@ -49,6 +49,7 @@ namespace RevitAPIExtension
             
 
             await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
+            await RevitAPIExtension.Commands.CodeGenCommand.InitializeAsync(this);
             //await Command.InitializeAsync(this);
         }
 

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RevitAPIExtension.QuickActions
+namespace RevitAPIExtension.Commands
 {
     static class Helpers
     {
@@ -53,6 +53,25 @@ namespace RevitAPIExtension.QuickActions
                 }
             }
             return null;
+        }
+        public static List<ProjectItem> FindAll(this ProjectItems items, Func<ProjectItem, bool> action)
+        {
+            ThreadHelper.ThrowIfNotOnUIThread();
+            List<ProjectItem> itemsResult = new List<ProjectItem>(); 
+            foreach (ProjectItem item in items)
+            {
+                if (item.ProjectItems.Count > 0)
+                {
+                    var result = item.ProjectItems.FindAll(action);
+                    if (result != null)
+                        itemsResult.AddRange(result);
+                }
+                else if (action(item))
+                {
+                    itemsResult.Add(item);
+                }
+            }
+            return itemsResult;
         }
     }
 }

@@ -1,0 +1,5 @@
+﻿
+#region $Unique_Name$
+PulldownButtonData $Var_Data$ = new PulldownButtonData("$Unique_Name$", "$Text$");
+PulldownButton $Var_Button$ = panel.AddItem($Var_Data$) as PulldownButton;
+#endregion $Unique_Name$

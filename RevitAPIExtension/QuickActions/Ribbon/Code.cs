@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.Imaging.Interop;
+﻿using EnvDTE;
+using Microsoft.VisualStudio.Imaging.Interop;
 using Microsoft.VisualStudio.Language.Intellisense;
 using Microsoft.VisualStudio.Shell;
 using System;
@@ -51,7 +52,7 @@ namespace RevitAPIExtension.QuickActions.Ribbon
         public Code(string className)
         {
             ClassName = className;
-            m_display = $"Generate Push Button {className}";
+            m_display = $"Generar Botón {className}";
         }
         public Task<object> GetPreviewAsync(CancellationToken cancellationToken)
         {
@@ -69,7 +70,9 @@ namespace RevitAPIExtension.QuickActions.Ribbon
         public void Invoke(CancellationToken cancellationToken)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
-            CodeGen.Generate(ClassName);
+            DTE dte = (DTE)Package.GetGlobalService(typeof(DTE));
+            object result = null;
+            dte.Commands.Raise("6f929c1e-9ddd-444e-b4b9-fdbf5a2c2253", 4129, null, ref result);
         }
         public void Dispose()
         {

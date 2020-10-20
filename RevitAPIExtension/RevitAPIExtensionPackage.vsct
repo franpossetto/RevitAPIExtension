@@ -15,10 +15,10 @@
         defining some of the constants that we will use inside the file. -->
 
   <!--This is the file that defines the IDs for all the commands exposed by VisualStudio. -->
-  <Extern href="stdidcmd.h"/>
+  <Extern href="stdidcmd.h" />
 
   <!--This header contains the command ids for the menus provided by the shell. -->
-  <Extern href="vsshlids.h"/>
+  <Extern href="vsshlids.h" />
 
   <!--The Commands section is where commands, menus, and menu groups are defined.
       This section uses a Guid to identify the package that provides the command defined inside it. -->
@@ -37,7 +37,7 @@
          must be a menu. -->
     <Groups>
       <Group guid="guidRevitAPIExtensionPackageCmdSet" id="MyMenuGroup" priority="0x0600">
-        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS"/>
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS" />
       </Group>
     </Groups>
 
@@ -48,8 +48,18 @@
             bitmap strip containing the bitmaps and then there are the numeric ids of the elements used
             inside a button definition. An important aspect of this declaration is that the element id
             must be the actual index (1-based) of the bitmap inside the bitmap strip. -->
-      <Bitmap guid="guidImages" href="Resources\icon.PNG" usedList="bmpPic1"/>
+      <Bitmap guid="guidImages" href="Resources\icon.PNG" usedList="bmpPic1" />
+      <Bitmap guid="guidImages1" href="Commands\Resources\CodeGenCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
     </Bitmaps>
+    <Buttons>
+      <Button guid="guidRevitAPIExtensionPackageCmdSet" id="cmdidCodeGenCommand" priority="0x0100" type="Button">
+        <Parent guid="guidRevitAPIExtensionPackageCmdSet" id="MyMenuGroup" />
+        <Icon guid="guidImages1" id="bmpPic1" />
+        <Strings>
+          <ButtonText>Generar Boton Revit</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
   </Commands>
 
   <Symbols>
@@ -60,10 +70,20 @@
     <GuidSymbol name="guidRevitAPIExtensionPackageCmdSet" value="{6f929c1e-9ddd-444e-b4b9-fdbf5a2c2253}">
       <IDSymbol name="MyMenuGroup" value="0x1020" />
       <IDSymbol name="CommandId" value="0x0100" />
+      <IDSymbol value="4129" name="cmdidCodeGenCommand" />
     </GuidSymbol>
 
-    <GuidSymbol name="guidImages" value="{df491d23-2355-4326-8ac9-7ff2ae9f4a34}" >
+    <GuidSymbol name="guidImages" value="{df491d23-2355-4326-8ac9-7ff2ae9f4a34}">
       <IDSymbol name="bmpPic1" value="1" />
+    </GuidSymbol>
+  
+    <GuidSymbol value="{8f1bf38b-8022-4345-8478-903fd11b1ca0}" name="guidImages1">
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPicSearch" value="3" />
+      <IDSymbol name="bmpPicX" value="4" />
+      <IDSymbol name="bmpPicArrows" value="5" />
+      <IDSymbol name="bmpPicStrikethrough" value="6" />
     </GuidSymbol>
   </Symbols>
 </CommandTable>

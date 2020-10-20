@@ -1,6 +1,7 @@
 ﻿using EnvDTE;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Text.Outlining;
+using RevitAPIExtension.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,12 +12,12 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace RevitAPIExtension.QuickActions.Ribbon
+namespace RevitAPIExtension.Commands
 {
     static class CodeGen
     {
         private static string StartupClassName { get; set; }
-        public static void Generate(string name)
+        public static void Generate(CodeGenData data)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             DTE dte = (DTE)Package.GetGlobalService(typeof(DTE));
@@ -24,14 +25,15 @@ namespace RevitAPIExtension.QuickActions.Ribbon
             var projectItems = project.ProjectItems;
             ProjectItem addin = GetAddin(projectItems);
             string className = GetStartupClassName(addin);
-            if(className is null)
+            if (className is null)
                 return;
             var startup = GetStartupItem(projectItems, className);
             Initialize(startup, project);
-            InsertCode(projectItems, name);
+            InsertCode(projectItems, data);
         }
         private static void Initialize(ProjectItem startup, Project project)
         {
+            ThreadHelper.ThrowIfNotOnUIThread();
             if (startup != null)
             {
                 CreateFile(project, out bool isNew);
@@ -42,10 +44,10 @@ namespace RevitAPIExtension.QuickActions.Ribbon
                 }
             }
         }
-        private static void InsertCode(ProjectItems items, string name)
-        {
+        private static void InsertCode(ProjectItems items, CodeGenData data)
+        {   
             ThreadHelper.ThrowIfNotOnUIThread();
-            var panelItem = items.Find(item => item.Name == "AddinsPanel.cs");
+            var panelItem = items.Find(item => item.Name == "Addins.Panel.cs");
             if (panelItem is null)
                 return;
             var windowItem = panelItem.Open();
@@ -54,25 +56,81 @@ namespace RevitAPIExtension.QuickActions.Ribbon
             var regex = new Regex(@"#region(?: |\t)*(?<name>.*)$(?<content>(.|\n)*?)#endregion(?: |\t)*\k<name>", RegexOptions.Multiline);
             var matches = regex.Matches(selection.Text);
             var regions = new List<RegionData>();
-            foreach (Match match in regex.Matches(selection.Text))
+            foreach (Match match in matches)
             {
                 regions.Add(new RegionData(match.Groups["name"], match.Groups["content"], match.Index, match.Length));
             }
-            SetPushButton(regions, name, selection);
+            switch (data.Type)
+            {
+                case ButtonType.Push:
+                    SetPushButton(regions.SingleOrDefault(r => r.Name.Value.StartsWith("PushButtons")), data, selection);
+                    break;
+                case ButtonType.Stack:
+                    SetPushButton(regions.SingleOrDefault(r => r.Name.Value.StartsWith("PushButtons")), data, selection);
+                    break;
+                case ButtonType.PullDown:
+                    SetPullDownButton(regions.SingleOrDefault(r => r.Name.Value.StartsWith("PullDownButtons")), data, selection);
+                    break;
+                default:
+                    break;
+            }
             panelItem.Document.Save();
             windowItem.Close();
         }
-        private static void SetPushButton(List<RegionData> regions, string name, TextSelection selection)
+        private static void SetPushButton(RegionData region, CodeGenData data, TextSelection selection)
         {
-            var pushButtonRegion = regions.Single(r => r.Name.Value.StartsWith("PushButtons"));
-            int i = pushButtonRegion.Content.Index;
-            RemoveIfExist(pushButtonRegion, selection, name);
+            ThreadHelper.ThrowIfNotOnUIThread();
+            int i = region.Content.Index;
+            string uniqueName = data.NameSpace.Replace(".", "_") + "_" + data.ClassName;
+            RemoveIfExist(region, selection, uniqueName);
             string textFirst = selection.Text.Substring(0, i + 1); //++1 para tomar el \n del inicio
-            var code = GetPushButtonCode(name);
+            var code = GetPushButtonCode(data, uniqueName);
             string textLast = selection.Text.Substring(i +1);
             selection.Insert(textFirst + code + textLast);
             selection.SelectAll();
             selection.SmartFormat();
+        }
+        private static string GetPushButtonCode(CodeGenData data, string uniqueName)
+        {
+            string template = File.ReadAllText(Directory.GetCurrentDirectory() + @"\Resources\PushButtonCode.txt");
+            string code = template.Replace("$Unique_Name$", uniqueName);
+            code = code.Replace("$Text$", data.Text);
+            code = code.Replace("$Class_Name$", data.ClassName);
+            string varName = uniqueName + "_" + "Button";
+            string varData = uniqueName + "_" + "Data";
+            code = code.Replace("$Var_Data$", uniqueName + "_" + "Data");
+            if (data.Parent is null)
+            {
+                code = code.Replace("$AddItem$", $"PushButton {varName} = panel.AddItem({varData}) as PushButton;");
+            }
+            else
+            {
+                string varParent = data.Parent.UniqueName + "_" + "Button";
+                code = code.Replace("$AddItem$", $"{varParent}.AddPushButton({varName});");
+            }
+            return code;
+        }
+        private static void SetPullDownButton(RegionData region, CodeGenData data, TextSelection selection)
+        {
+            ThreadHelper.ThrowIfNotOnUIThread();
+            int i = region.Content.Index;
+            string uniqueName = data.NameSpace.Replace(".", "_") + "_" + data.ClassName;
+            RemoveIfExist(region, selection, uniqueName);
+            string textFirst = selection.Text.Substring(0, i + 1); //++1 para tomar el \n del inicio
+            var code = GetPullDownButtonCode(data, uniqueName);
+            string textLast = selection.Text.Substring(i + 1);
+            selection.Insert(textFirst + code + textLast);
+            selection.SelectAll();
+            selection.SmartFormat();
+        }
+        private static string GetPullDownButtonCode(CodeGenData data, string uniqueName)
+        {
+            string template = File.ReadAllText(Directory.GetCurrentDirectory() + @"\Resources\PullDownButtonCode.txt");
+            string code = template.Replace("$Unique_Name$", uniqueName);
+            code = code.Replace("$Text$", data.Text);
+            code = code.Replace("$Var_Data$", uniqueName + "_" + "Data");
+            code = code.Replace("$Var_Button$", uniqueName + "_" + "Button");
+            return code;
         }
         private static void RemoveIfExist(RegionData region, TextSelection selection, string name)
         {
@@ -93,16 +151,6 @@ namespace RevitAPIExtension.QuickActions.Ribbon
                 selection.SelectAll();
             }
         }
-        private static string GetPushButtonCode(string name)
-        {
-            string template = File.ReadAllText(Directory.GetCurrentDirectory() + @"\Resources\PushButtonCode.txt");
-            string code = template.Replace("$Unique_Name$", name);
-            code = code.Replace("$Label$", name);
-            code = code.Replace("$Class_Name$", name);
-            code = code.Replace("$Var_Data$", name + "Data");
-            code = code.Replace("$Var_Button$", name + "Button");
-            return code;
-        }
         private static ProjectItem GetAddin(ProjectItems items)
         {
             return items.Find(item =>
@@ -116,10 +164,10 @@ namespace RevitAPIExtension.QuickActions.Ribbon
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             var items = project.ProjectItems;
-            bool exists = items.Exist(item => item.Name == "AddinsPanel.cs");
+            bool exists = items.Exist(item => item.Name == "Addins.Panel.cs");
             if (!exists)
             {
-                items.AddFromFileCopy(Directory.GetCurrentDirectory() + @"\Resources\AddinsPanel.cs");//Agregar archivo
+                items.AddFromFileCopy(Directory.GetCurrentDirectory() + @"\Resources\Addins.Panel.cs");//Agregar archivo
                 isNew = true;
             }
             else
@@ -210,30 +258,81 @@ namespace RevitAPIExtension.QuickActions.Ribbon
             startup.Document.Save();
             startupWindow.Close();
         }
-    }
-    class RangeString
-    {
-        public int StartIndex { get; set; }
-        public int EndIndex { get; set; }
-        public RangeString(int start, int end)
+        public static UIDefaultData GetDefaultData()
         {
-            this.StartIndex = start;
-            this.EndIndex = end;
+            ThreadHelper.ThrowIfNotOnUIThread();
+            DTE dte = (DTE)Package.GetGlobalService(typeof(DTE));
+            var selection = dte.ActiveDocument.Selection as TextSelection;
+            selection.SelectAll();
+            var project = dte.Solution.Projects.Item(1);
+            var projectItems = project.ProjectItems;
+            ProjectItem addin = GetAddin(projectItems);
+            string className = GetStartupClassName(addin);
+            if (className is null)
+                return null;
+            var startup = GetStartupItem(projectItems, className);
+            Initialize(startup, project);
+            //var panelsItemList = projectItems.FindAll(i => i.Name.EndsWith(".panel.cs"));
+            var panelItem = projectItems.Find(item => item.Name == "Addins.Panel.cs");
+            var panelFiles = GetPanelData(new List<ProjectItem>() { panelItem });
+            var commandRegex = new Regex(@"namespace\s*(?'nameSpace'\w+)\s*{(?:.|\n)*?^\s*\w*\s*class\s*(?'className'\w+)\s*:\s*IExternalCommand", RegexOptions.Multiline);
+            var match = commandRegex.Match(selection.Text);
+            return new UIDefaultData()
+            {
+                Panels = panelFiles,
+                Default = new CodeGenData()
+                {
+                    NameSpace = match.Groups["nameSpace"].Value,
+                    ClassName = match.Groups["className"].Value,
+                    Text = match.Groups["className"].Value,
+                    Type = ButtonType.Push,
+                    Panel = "Addins"
+                }
+            };
         }
-
-    }
-    class RegionData
-    {
-        public Group Name { get; set; }
-        public Group Content { get; set; }
-        public int Index { get; set; }
-        public int Length { get; set; }
-        public RegionData(Group name, Group content, int index, int length)
+        private static List<RegionData> GetButtonsRegion(RegionData parent)
         {
-            Name = name;
-            Content = content;
-            Index = index;
-            Length = length;
+            var regionRegex = new Regex(@"#region(?: |\t)*(?<name>.*)$(?<content>(.|\n)*?)#endregion(?: |\t)*\k<name>", RegexOptions.Multiline);
+            var matches = regionRegex.Matches(parent.Content.Value);
+            var regions = new List<RegionData>();
+            foreach (Match match in matches)
+            {
+                regions.Add(new RegionData(match.Groups["name"], match.Groups["content"], match.Index, match.Length));
+            }
+            return regions;
+        }
+        private static List<PanelFile> GetPanelData(List<ProjectItem> panels)
+        {
+            ThreadHelper.ThrowIfNotOnUIThread();
+            var result = new List<PanelFile>();
+            var regionRegex = new Regex(@"#region(?: |\t)*(?<name>.*)$(?<content>(.|\n)*?)#endregion(?: |\t)*\k<name>", RegexOptions.Multiline);
+            foreach (ProjectItem panel in panels)
+            {
+                var windowPanel = panel.Open();
+                var selection = panel.Document.Selection as TextSelection;
+                selection.SelectAll();
+                var matches = regionRegex.Matches(selection.Text);
+                RegionData pulldownRegion = null;
+                foreach (Match match in matches)
+                {
+                    if (match.Groups["name"].Value.StartsWith("PullDownButtons"))
+                        pulldownRegion = new RegionData(match.Groups["name"], match.Groups["content"], match.Index, match.Length);
+                }
+                if (pulldownRegion is null)
+                    throw new Exception($"No se encuentra la region PullDowButons en el archivo de panel {panel.Name}");
+                else
+                {
+                    result.Add(new PanelFile()
+                    {
+                        Name = panel.Name.Split('.')[0],
+                        FullName = panel.FileNames[0],
+                        ParentRegion = pulldownRegion,
+                        PullDowns = GetButtonsRegion(pulldownRegion)
+                    });
+                }
+                windowPanel.Close(vsSaveChanges.vsSaveChangesNo);
+            }
+            return result;
         }
     }
 }

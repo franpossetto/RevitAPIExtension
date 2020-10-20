@@ -17,8 +17,12 @@ namespace RevitAPIExtension.Resources
             RibbonPanel panel = application.GetRibbonPanels()
 	            .FirstOrDefault(p => p.Name.Equals("addinPanel", StringComparison.InvariantCulture));
             panel = panel ?? application.CreateRibbonPanel("addinPanel");
+            #region PullDownButtons
+            #endregion PullDownButtons
             #region PushButtons
             #endregion PushButtons
+            #region StackButtons
+            #endregion StackButtons
         }
     }
 }

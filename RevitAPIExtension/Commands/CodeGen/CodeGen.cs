@@ -275,7 +275,7 @@ namespace RevitAPIExtension.Commands
             //var panelsItemList = projectItems.FindAll(i => i.Name.EndsWith(".panel.cs"));
             var panelItem = projectItems.Find(item => item.Name == "Addins.Panel.cs");
             var panelFiles = GetPanelData(new List<ProjectItem>() { panelItem });
-            var commandRegex = new Regex(@"namespace\s*(?'nameSpace'\w+)\s*{(?:.|\n)*?^\s*\w*\s*class\s*(?'className'\w+)\s*:\s*IExternalCommand", RegexOptions.Multiline);
+            var commandRegex = new Regex(@"namespace\s*(?'nameSpace'(\w|.)+)\s*{(?:.|\n)*?^\s*\w*\s*class\s*(?'className'\w+)\s*:\s*IExternalCommand", RegexOptions.Multiline);
             var match = commandRegex.Match(selection.Text);
             return new UIDefaultData()
             {

@@ -52,7 +52,7 @@ namespace RevitAPIExtension.QuickActions.Ribbon
         public Code(string className)
         {
             ClassName = className;
-            m_display = $"Generar Botón {className}";
+            m_display = $"Create button for {className}";
         }
         public Task<object> GetPreviewAsync(CancellationToken cancellationToken)
         {
@@ -60,7 +60,7 @@ namespace RevitAPIExtension.QuickActions.Ribbon
             {
                 Padding = new Thickness(5)
             };
-            textBlock.Inlines.Add(new Run() { Text =  $"Generar el codigo de diseño del botón para el comando {ClassName}"});
+            textBlock.Inlines.Add(new Run() { Text =  $"Generate code to create the button {ClassName} in the Revit Ribbon bar"});
             return Task.FromResult<object>(textBlock);
         }
         public Task<IEnumerable<SuggestedActionSet>> GetActionSetsAsync(CancellationToken cancellationToken)

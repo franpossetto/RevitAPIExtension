@@ -216,7 +216,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.SDK">
+    <PackageReference Include="Microsoft.VisualStudio.SDK" ExcludeAssets="none">
       <Version>16.0.206</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VSSDK.BuildTools">

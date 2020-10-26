@@ -83,22 +83,22 @@ namespace RevitAPIExtension.Commands
             int i = region.Content.Index;
             string uniqueName = data.NameSpace.Replace(".", "_") + "_" + data.ClassName;
             RemoveIfExist(region, selection, uniqueName);
-            string textFirst = selection.Text.Substring(0, i + 1); //++1 para tomar el \n del inicio
+            string textFirst = selection.Text.Substring(0, i + 1); //+1 para tomar el \n del inicio
             var code = GetPushButtonCode(data, uniqueName);
-            string textLast = selection.Text.Substring(i +1);
+            string textLast = selection.Text.Substring(i + 1);//+1 porque se tomo anteriormente
             selection.Insert(textFirst + code + textLast);
             selection.SelectAll();
             selection.SmartFormat();
         }
         private static string GetPushButtonCode(CodeGenData data, string uniqueName)
         {
-            string template = File.ReadAllText(Directory.GetCurrentDirectory() + @"\Resources\PushButtonCode.txt");
+            string template = Resources.PushButtonCode;
             string code = template.Replace("$Unique_Name$", uniqueName);
             code = code.Replace("$Text$", data.Text);
             code = code.Replace("$Class_Name$", data.ClassName);
             string varName = uniqueName + "_" + "Button";
             string varData = uniqueName + "_" + "Data";
-            code = code.Replace("$Var_Data$", uniqueName + "_" + "Data");
+            code = code.Replace("$Var_Data$", (uniqueName + "_" + "Data"));
             if (data.Parent is null)
             {
                 code = code.Replace("$AddItem$", $"PushButton {varName} = panel.AddItem({varData}) as PushButton;");
@@ -116,16 +116,16 @@ namespace RevitAPIExtension.Commands
             int i = region.Content.Index;
             string uniqueName = data.NameSpace.Replace(".", "_") + "_" + data.ClassName;
             RemoveIfExist(region, selection, uniqueName);
-            string textFirst = selection.Text.Substring(0, i + 1); //++1 para tomar el \n del inicio
+            string textFirst = selection.Text.Substring(0, i + 1); //+1 para tomar el \n del inicio
             var code = GetPullDownButtonCode(data, uniqueName);
-            string textLast = selection.Text.Substring(i + 1);
+            string textLast = selection.Text.Substring(i + 1);//+1 porque se tomo anteriormente
             selection.Insert(textFirst + code + textLast);
             selection.SelectAll();
             selection.SmartFormat();
         }
         private static string GetPullDownButtonCode(CodeGenData data, string uniqueName)
         {
-            string template = File.ReadAllText(Directory.GetCurrentDirectory() + @"\Resources\PullDownButtonCode.txt");
+            string template = Resources.PullDownButtonCode;
             string code = template.Replace("$Unique_Name$", uniqueName);
             code = code.Replace("$Text$", data.Text);
             code = code.Replace("$Var_Data$", uniqueName + "_" + "Data");
@@ -167,7 +167,17 @@ namespace RevitAPIExtension.Commands
             bool exists = items.Exist(item => item.Name == "Addins.Panel.cs");
             if (!exists)
             {
-                items.AddFromFileCopy(Directory.GetCurrentDirectory() + @"\Resources\Addins.Panel.cs");//Agregar archivo
+                string fileName = Directory.GetCurrentDirectory() + @"\Resources\Addins.Panel.cs";
+                if (!File.Exists(fileName))
+                {
+                    using (var file = File.Create(fileName))
+                    {
+                        var content = new UTF8Encoding(true).GetBytes(Resources.Addins_Panel);
+                        file.Write(content, 0, content.Length);
+                        file.Close();
+                    }
+                }
+                items.AddFromFileCopy(fileName);//Agregar archivo
                 isNew = true;
             }
             else
@@ -236,11 +246,10 @@ namespace RevitAPIExtension.Commands
         private static void SetRunCode(ProjectItem startup, RangeString range)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
-            var startupWindow = startup.Open();
+            Window startupWindow = startup.Open();
             var selectionStartup = startup.Document.Selection as TextSelection;
             selectionStartup.SelectAll();
-            string patern = @"\s*return\s*Result\.Succeeded;";
-            var regex = new Regex(patern);
+            var regex = new Regex(@"\s*return\s*Result\.Succeeded;");
             var maches = regex.Matches(selectionStartup.Text);
             foreach (Match mach in maches)
             {
@@ -260,35 +269,42 @@ namespace RevitAPIExtension.Commands
         }
         public static UIDefaultData GetDefaultData()
         {
-            ThreadHelper.ThrowIfNotOnUIThread();
-            DTE dte = (DTE)Package.GetGlobalService(typeof(DTE));
-            var selection = dte.ActiveDocument.Selection as TextSelection;
-            selection.SelectAll();
-            var project = dte.Solution.Projects.Item(1);
-            var projectItems = project.ProjectItems;
-            ProjectItem addin = GetAddin(projectItems);
-            string className = GetStartupClassName(addin);
-            if (className is null)
-                return null;
-            var startup = GetStartupItem(projectItems, className);
-            Initialize(startup, project);
-            //var panelsItemList = projectItems.FindAll(i => i.Name.EndsWith(".panel.cs"));
-            var panelItem = projectItems.Find(item => item.Name == "Addins.Panel.cs");
-            var panelFiles = GetPanelData(new List<ProjectItem>() { panelItem });
-            var commandRegex = new Regex(@"namespace\s*(?'nameSpace'(\w|.)+)\s*{(?:.|\n)*?^\s*\w*\s*class\s*(?'className'\w+)\s*:\s*IExternalCommand", RegexOptions.Multiline);
-            var match = commandRegex.Match(selection.Text);
-            return new UIDefaultData()
+            try
             {
-                Panels = panelFiles,
-                Default = new CodeGenData()
+                ThreadHelper.ThrowIfNotOnUIThread();
+                DTE dte = (DTE)Package.GetGlobalService(typeof(DTE));
+                var selection = dte.ActiveDocument.Selection as TextSelection;
+                selection.SelectAll();
+                var project = dte.Solution.Projects.Item(1);
+                var projectItems = project.ProjectItems;
+                ProjectItem addin = GetAddin(projectItems);
+                string className = GetStartupClassName(addin);
+                if (className is null)
+                    return null;
+                var startup = GetStartupItem(projectItems, className);
+                Initialize(startup, project);
+                //var panelsItemList = projectItems.FindAll(i => i.Name.EndsWith(".panel.cs"));
+                var panelItem = projectItems.Find(item => item.Name == "Addins.Panel.cs");
+                var panelFiles = GetPanelData(new List<ProjectItem>() { panelItem });
+                var commandRegex = new Regex(@"namespace\s*(?'nameSpace'(?:\w|\.)+)\s*{(?:.|\n)*?^\s*\w*\s*class\s*(?'className'\w+)\s*:\s*IExternalCommand", RegexOptions.Multiline);
+                var match = commandRegex.Match(selection.Text);
+                return new UIDefaultData()
                 {
-                    NameSpace = match.Groups["nameSpace"].Value,
-                    ClassName = match.Groups["className"].Value,
-                    Text = match.Groups["className"].Value,
-                    Type = ButtonType.Push,
-                    Panel = "Addins"
-                }
-            };
+                    Panels = panelFiles,
+                    Default = new CodeGenData()
+                    {
+                        NameSpace = match.Groups["nameSpace"].Value,
+                        ClassName = match.Groups["className"].Value,
+                        Text = match.Groups["className"].Value,
+                        Type = ButtonType.Push,
+                        Panel = "Addins"
+                    }
+                };
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         private static List<RegionData> GetButtonsRegion(RegionData parent)
         {

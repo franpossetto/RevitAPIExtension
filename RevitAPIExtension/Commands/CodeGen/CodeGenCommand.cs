@@ -90,12 +90,19 @@ namespace RevitAPIExtension.Commands
         /// <param name="e">Event args.</param>
         private void Execute(object sender, EventArgs e)
         {
-            ThreadHelper.ThrowIfNotOnUIThread();
-            var defaultData = CodeGen.GetDefaultData();
-            var modal = new CodeGenUI(defaultData);
-            var result = modal.ShowModal();
-            if(result != null)
-                CodeGen.Generate(result);
+            try
+            {
+                ThreadHelper.ThrowIfNotOnUIThread();
+                var defaultData = CodeGen.GetDefaultData();
+                var modal = new CodeGenUI(defaultData);
+                var result = modal.ShowModal();
+                if(result != null)
+                    CodeGen.Generate(result);
+            }
+            catch (Exception ex)
+            {
+                VsShellUtilities.ShowMessageBox(package, ex?.Message + "\n" + ex?.StackTrace, "Error", OLEMSGICON.OLEMSGICON_CRITICAL, OLEMSGBUTTON.OLEMSGBUTTON_OK, OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+            }
         }
     }
 }

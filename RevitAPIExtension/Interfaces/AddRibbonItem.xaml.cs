@@ -18,7 +18,7 @@ namespace RevitAPIExtension.Interfaces
     /// <summary>
     /// Interaction logic for AddRibbonItem.xaml
     /// </summary>
-    public partial class AddRibbonItem : UserControl
+    public partial class AddRibbonItem : Window
     {
         public AddRibbonItem()
         {

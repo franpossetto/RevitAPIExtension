@@ -10,7 +10,7 @@
              Topmost="True">
     <Grid Background="#FFF1F1F1">
         <Button Content="Create" HorizontalAlignment="Left" Width="75" Margin="253,0,0,34" FontSize="10" Height="22" VerticalAlignment="Bottom"/>
-        <Button Content="Cancel" HorizontalAlignment="Left" Width="75" Margin="173,0,0,34" FontSize="10" Height="22" VerticalAlignment="Bottom"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Width="75" Margin="168,0,0,34" FontSize="10" Height="22" VerticalAlignment="Bottom"/>
         <Label Content="Name:" HorizontalAlignment="Left" Margin="15,86,0,0" VerticalAlignment="Top" FontSize="10"/>
         <Label Content="Type:" HorizontalAlignment="Left" Margin="15,122,0,0" VerticalAlignment="Top" FontSize="10"/>
         <Label Content="Panel:" HorizontalAlignment="Left" Margin="15,248,0,0" VerticalAlignment="Top" FontSize="10"/>

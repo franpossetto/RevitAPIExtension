@@ -56,6 +56,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Commands\CodeGen\CodeGenCommand.cs" />
+    <Compile Include="Interfaces\AddRibbonItem.xaml.cs">
+      <DependentUpon>AddRibbonItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\CodeGenUI.xaml.cs">
       <DependentUpon>CodeGenUI.xaml</DependentUpon>
     </Compile>
@@ -239,6 +242,10 @@
     <Folder Include="RevitAPISnippets\Ribbon\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Interfaces\AddRibbonItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Interfaces\CodeGenUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

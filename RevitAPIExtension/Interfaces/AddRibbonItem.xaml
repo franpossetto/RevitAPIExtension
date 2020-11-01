@@ -9,15 +9,15 @@
              ResizeMode="NoResize"
              Topmost="True">
     <Grid Background="#FFF1F1F1">
-        <Button Content="Create" HorizontalAlignment="Left" Width="75" Margin="253,0,0,44" FontSize="10" Height="22" VerticalAlignment="Bottom"/>
-        <Button Content="Cancel" HorizontalAlignment="Left" Width="75" Margin="168,0,0,44" FontSize="10" Height="22" VerticalAlignment="Bottom"/>
+        <Button Content="Create" HorizontalAlignment="Left" Width="75" Margin="253,0,0,44" FontSize="10" Height="22" VerticalAlignment="Bottom" Click="Button_Click"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Width="75" Margin="168,0,0,44" FontSize="10" Height="22" VerticalAlignment="Bottom" Click="Button_Click_1"/>
         <Label Content="Button Name:" HorizontalAlignment="Left" Margin="15,86,0,0" VerticalAlignment="Top" FontSize="10"/>
         <Label Content="Button Type:" HorizontalAlignment="Left" Margin="15,123,0,0" VerticalAlignment="Top" FontSize="10"/>
         <Label Content="RibbonPanel:" HorizontalAlignment="Left" Margin="15,162,0,0" VerticalAlignment="Top" FontSize="10"/>
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="100,123,0,0" Height="20" />
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="228" Margin="100,162,0,0" Height="20"/>
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="218,123,0,0" Height="19" IsEnabled="False"/>
-        <TextBox HorizontalAlignment="Left" Height="20" Margin="100,89,0,0" TextWrapping="Wrap" Text="ExternalCommandName"  VerticalAlignment="Top" Width="228" FontSize="10"/>
+        <ComboBox Name="cbType" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="100,123,0,0" Height="20" />
+        <ComboBox IsEditable="False" SelectionChanged="cbPanels_SelectionChanged" Name="cbPanels" HorizontalAlignment="Left" VerticalAlignment="Top" Width="228" Margin="100,162,0,0" Height="20"/>
+        <ComboBox IsEditable="False" Name="cbPullDows" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="218,123,0,0" Height="19" IsEnabled="False"/>
+        <TextBox Name="tbText" HorizontalAlignment="Left" Height="20" Margin="100,89,0,0" TextWrapping="Wrap" Text="ExternalCommandName"  VerticalAlignment="Top" Width="228" FontSize="10"/>
         <Rectangle Fill="White" Height="61" VerticalAlignment="Top" Stroke="White"/>
         <TextBlock HorizontalAlignment="Left" Margin="21,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" FontWeight="Bold" FontSize="10"><Run Text="Add a new item"/><Run Text="s"/><Run Text=" in the Ribon Bar"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="21,30,-24,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354" FontSize="8"><Run Text="The code will be added inside Ribbon folder"/><Run Text=" with the naming convention NamePanel."/></TextBlock>

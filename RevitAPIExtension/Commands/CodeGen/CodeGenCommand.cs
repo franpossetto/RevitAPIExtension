@@ -95,6 +95,7 @@ namespace RevitAPIExtension.Commands
                 ThreadHelper.ThrowIfNotOnUIThread();
                 var defaultData = CodeGen.GetDefaultData();
                 var modal = new CodeGenUI(defaultData);
+                //var modal = new AddRibbonItem(defaultData);
                 var result = modal.ShowModal();
                 if(result != null)
                     CodeGen.Generate(result);

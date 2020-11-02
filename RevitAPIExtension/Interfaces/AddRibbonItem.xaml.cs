@@ -1,4 +1,5 @@
-﻿using RevitAPIExtension.Models;
+﻿using Microsoft.VisualStudio.PlatformUI;
+using RevitAPIExtension.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace RevitAPIExtension.Interfaces
     /// <summary>
     /// Interaction logic for AddRibbonItem.xaml
     /// </summary>
-    public partial class AddRibbonItem : Window
+    public partial class AddRibbonItem : Window, DialogWindow
     {
         private bool IsCancel = false;
         private readonly UIDefaultData _defaultData;
@@ -83,3 +84,12 @@ namespace RevitAPIExtension.Interfaces
 
     }
 }
+
+
+// op1 pushbutton       is not            parent: pulldownbutton que esten en el panel seleccionado.
+// op2 pulldown         is not            parent: nada
+
+// si no se selecciona parent ->se crea push/pulldown button data.
+
+// op3 pushbutton       is stacked        parent: x-buttondata que esten en el panel seleccionado.
+// op4 pulldown         is stacked        parent: x-buttondata que esten en el panel seleccionado.

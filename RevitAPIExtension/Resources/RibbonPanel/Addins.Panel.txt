@@ -14,14 +14,19 @@ namespace RevitAPIExtension.Resources
         public static void Build(UIControlledApplication application, string tabName)
         {
             string assemblyPath = Assembly.GetExecutingAssembly().Location;
-            RibbonPanel panel = application.GetRibbonPanels()
-	            .FirstOrDefault(p => p.Name.Equals("addinPanel", StringComparison.InvariantCulture));
-            panel = panel ?? application.CreateRibbonPanel("addinPanel");
+            
+			RibbonPanel panel = application.GetRibbonPanels()
+								.FirstOrDefault(p => p.Name.Equals("addinPanel",						StringComparison.InvariantCulture));
+            
+			panel = panel ?? application.CreateRibbonPanel("addinPanel");
+
             #region PullDownButtons
             #endregion PullDownButtons
-            #region PushButtons
+            
+			#region PushButtons
             #endregion PushButtons
-            #region StackButtons
+            
+			#region StackButtons
             #endregion StackButtons
         }
     }

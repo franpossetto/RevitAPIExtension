@@ -76,23 +76,22 @@
     <Compile Include="Commands\CodeGen\CodeGen.cs" />
     <Compile Include="QuickActions\Ribbon\Provider.cs" />
     <Content Include="Commands\Resources\CodeGenCommand.png" />
-    <Content Include="Resources\PullDownButtonCode.txt">
+    <Content Include="Resources\ButtonType\PullDownButtonCode.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Resources\PushButtonCode.txt">
+    <Content Include="Resources\ButtonType\PushButtonCode.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Resources\PanelCode.txt">
+    <Content Include="Resources\RibbonPanel\PanelCode.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="Resources\RibbonBundle.cs">
       <IncludeInVSIX>true</IncludeInVSIX>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\Addins.Panel.txt">
+    <Content Include="Resources\RibbonPanel\Addins.Panel.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Compile Include="Resources.Designer.cs">

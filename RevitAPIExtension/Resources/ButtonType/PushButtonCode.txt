@@ -1,7 +1,6 @@
 ﻿#region $Unique_Name$
 
 PushButtonData $Var_Data$ = new PushButtonData("$Unique_Name$", "$Text$", assemblyPath, "$Class_Name$");
-
 $AddItem$
 
 #endregion $Unique_Name$

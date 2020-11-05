@@ -16,7 +16,11 @@
         <Label Content="Button Name:" HorizontalAlignment="Left" Margin="15,84,0,0" VerticalAlignment="Top" FontSize="10"/>
         <Label Content="Button Type:" HorizontalAlignment="Left" Margin="15,161,0,0" VerticalAlignment="Top" FontSize="10"/>
         <Label Content="RibbonPanel:" HorizontalAlignment="Left" Margin="15,123,0,0" VerticalAlignment="Top" FontSize="10"/>
-        <ComboBox Name="cbType" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="100,162,0,0" Height="20" />
+        <ComboBox Name="cbType" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="100,162,0,0" Height="20">
+            <ComboBoxItem Content="Push"/>
+            <ComboBoxItem Content="Stack"/>
+            <ComboBoxItem Content="Pull Down"/>
+        </ComboBox>
         <ComboBox IsEditable="False" SelectionChanged="cbPanels_SelectionChanged" Name="cbPanels" HorizontalAlignment="Left" VerticalAlignment="Top" Width="228" Margin="100,123,0,0" Height="20"/>
         <ComboBox IsEditable="False" Name="cbPullDows" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="100,198,0,0" Height="20" IsEnabled="False"/>
         <TextBox Name="tbText" HorizontalAlignment="Left" Height="20" Margin="100,87,0,0" TextWrapping="Wrap" Text="ExternalCommandName"  VerticalAlignment="Top" Width="228" FontSize="10"/>

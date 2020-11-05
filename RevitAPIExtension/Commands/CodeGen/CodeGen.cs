@@ -105,8 +105,9 @@ namespace RevitAPIExtension.Commands
             }
             else
             {
-                string varParent = data.Parent.UniqueName + "_" + "Button";
-                code = code.Replace("$AddItem$", $"{varParent}.AddPushButton({varName});");
+                string parentName = data.Parent.UniqueName.Substring(0, data.Parent.UniqueName.Length - 1);
+                string varParent = parentName + "_" + "Button";
+                code = code.Replace("$AddItem$", $"{varParent}.AddPushButton({varData});");
             }
             return code;
         }

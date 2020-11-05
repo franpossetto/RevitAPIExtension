@@ -20,7 +20,7 @@ namespace RevitAPIExtension.Interfaces
     /// <summary>
     /// Interaction logic for AddRibbonItem.xaml
     /// </summary>
-    public partial class AddRibbonItem : Window, DialogWindow
+    public partial class AddRibbonItem : DialogWindow
     {
         private bool IsCancel = false;
         private readonly UIDefaultData _defaultData;
@@ -65,8 +65,8 @@ namespace RevitAPIExtension.Interfaces
             var panel = _defaultData.Panels.Find(p => p.Name == panelName);
             var pullDowns = panel.PullDowns.Select(p =>
             {
-                var uniqueName = p.Name.Value;
-                var name = uniqueName.Split('.')[0];
+                var uniqueName = p.Name.Value.Substring(0, p.Name.Length - 1);
+                var name = uniqueName.Split('_').Last();
                 return new ButtonReference()
                 {
                     Name = name,

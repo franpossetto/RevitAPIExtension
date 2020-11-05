@@ -77,8 +77,8 @@ namespace RevitAPIExtension {
         ///        public static void Build(UIControlledApplication application, string tabName)
         ///        {
         ///            string assemblyPath = Assembly.GetExecutingAssembly().Location;
-        ///            RibbonPanel panel = application.GetRibbonPanels()
-        ///	    [rest of string was truncated]&quot;;.
+        ///            
+        ///			RibbonPanel panel = application.GetRibbonPanels()        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Addins_Panel {
             get {
@@ -87,22 +87,12 @@ namespace RevitAPIExtension {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to RibbonPanel $Var_Panel$ = application.GetRibbonPanels(tabName)
-        ///	.FirstOrDefault(p =&gt; p.Name.Equals(&quot;$Panel_Name$&quot;, StringComparison.InvariantCulture));
-        ///$Var_Panel$ = $Var_Panel$ ?? (tabName is null ? application.CreateRibbonPanel(&quot;$Panel_Name$&quot;) : application.CreateRibbonPanel(tabName, &quot;$Panel_Name$&quot;));
-        ///.
-        /// </summary>
-        internal static string PanelCode {
-            get {
-                return ResourceManager.GetString("PanelCode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to 
         ///#region $Unique_Name$
+        ///
         ///PulldownButtonData $Var_Data$ = new PulldownButtonData(&quot;$Unique_Name$&quot;, &quot;$Text$&quot;);
         ///PulldownButton $Var_Button$ = panel.AddItem($Var_Data$) as PulldownButton;
+        ///
         ///#endregion $Unique_Name$
         ///.
         /// </summary>
@@ -113,10 +103,9 @@ namespace RevitAPIExtension {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 
-        ///#region $Unique_Name$
-        ///PushButtonData $Var_Data$ = new PushButtonData(&quot;$Unique_Name$&quot;, &quot;$Text$&quot;, assemblyPath, &quot;$Class_Name$&quot;);
+        ///   Looks up a localized string similar to #region $Unique_Name$
         ///
+        ///PushButtonData $Var_Data$ = new PushButtonData(&quot;$Unique_Name$&quot;, &quot;$Text$&quot;, assemblyPath, &quot;$Class_Name$&quot;);
         ///$AddItem$
         ///
         ///#endregion $Unique_Name$

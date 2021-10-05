@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.Shell;
+using System;
 using System.Runtime.InteropServices;
 using System.Threading;
-using Microsoft.VisualStudio.Shell;
 using Task = System.Threading.Tasks.Task;
 
 namespace RevitAPIExtension
@@ -25,13 +25,12 @@ namespace RevitAPIExtension
     /// </remarks>
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
     [Guid(RevitAPIExtensionPackage.PackageGuidString)]
-    [ProvideMenuResource("Menus.ctmenu", 1)]
     public sealed class RevitAPIExtensionPackage : AsyncPackage
     {
         /// <summary>
         /// RevitAPIExtensionPackage GUID string.
         /// </summary>
-        public const string PackageGuidString = "23b2b2c1-4ce7-4896-a0fb-c09a1a7bf16e";
+        public const string PackageGuidString = "21dc11cd-281c-472f-b1be-1976b7f8aa5f";
 
         #region Package Members
 
@@ -46,10 +45,7 @@ namespace RevitAPIExtension
         {
             // When initialized asynchronously, the current thread may be a background thread at this point.
             // Do any initialization that requires the UI thread after switching to the UI thread.
-            
-
             await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
-            //await Command.InitializeAsync(this);
         }
 
         #endregion

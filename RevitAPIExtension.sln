@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevitAPIExtension", "RevitA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Revit.PushButton.d1", "Revit.PushButton.d1\Revit.PushButton.d1.csproj", "{85221690-D5E2-4837-AAF2-B030800390E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Revit.CommandManifest.d1", "Revit.CommandManifest.d1\Revit.CommandManifest.d1.csproj", "{47178435-F776-4C3B-882C-273658BF0E76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{85221690-D5E2-4837-AAF2-B030800390E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85221690-D5E2-4837-AAF2-B030800390E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85221690-D5E2-4837-AAF2-B030800390E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47178435-F776-4C3B-882C-273658BF0E76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47178435-F776-4C3B-882C-273658BF0E76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47178435-F776-4C3B-882C-273658BF0E76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47178435-F776-4C3B-882C-273658BF0E76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

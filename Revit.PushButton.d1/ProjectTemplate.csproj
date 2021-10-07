@@ -94,6 +94,7 @@
 		<Compile Include="ExternalApplication.cs" />
 		<Compile Include="ExternalCommand.cs" />
 		<Compile Include="Ribbon.cs" />
+		<None Include="$safeprojectname$.addin "/>
 
 		<Compile Include="Properties\AssemblyInfo.cs" />
 	</ItemGroup>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>Revit.PushButton.d1</Name>
+    <Description>Revit.PushButton.d1</Description>
+    <Icon>Revit.PushButton.d1.png</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <LanguageTag>csharp</LanguageTag>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>acaa7cf6-c0f4-4820-8443-cae078ef8634</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Revit.PushButton.d1</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">ExternalApplication.cs</ProjectItem>
+	  <ProjectItem ReplaceParameters="true" OpenInEditor="false">ExternalCommand.cs</ProjectItem>
+	  <ProjectItem ReplaceParameters="true" OpenInEditor="false">Ribbon.cs</ProjectItem>
+	  <ProjectItem ReplaceParameters="true" OpenInEditor="false">$safeprojectname$.addin</ProjectItem>
+	  
+    </Project>
+  </TemplateContent>
+</VSTemplate>

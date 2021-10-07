@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Revit.PushButton.d1")]
+[assembly: AssemblyTitle("$projectname$")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Juan Federico costamagna")]
-[assembly: AssemblyProduct("Revit.PushButton.d1")]
-[assembly: AssemblyCopyright("Copyright © Juan Federico costamagna 2021")]
+[assembly: AssemblyCompany("$registeredorganization$")]
+[assembly: AssemblyProduct("$projectname$")]
+[assembly: AssemblyCopyright("Copyright © $registeredorganization$ $year$")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("85221690-d5e2-4837-aaf2-b030800390e9")]
+[assembly: Guid("$guid1$")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>Revit.CommandManifest.d1</Name>
+    <Description>Revit.CommandManifest.d1</Description>
+    <Icon>Revit.CommandManifest.d1.png</Icon>
+    <TemplateID>ebc6adac-daac-4907-a35f-fd0e138f066a</TemplateID>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <DefaultName>Command.addin</DefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <References>
+    </References>
+	  <ProjectItem SubType="" TargetFileName="$fileinputname$.addin" ReplaceParameters="true">command.addin</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

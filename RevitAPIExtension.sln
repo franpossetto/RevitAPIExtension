@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Revit.PushButton.d1", "Revi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Revit.CommandManifest.d1", "Revit.CommandManifest.d1\Revit.CommandManifest.d1.csproj", "{47178435-F776-4C3B-882C-273658BF0E76}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjectTemplates", "ProjectTemplates", "{ED0B4367-F996-41CF-A3EF-1CDAB70C62CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ItemTemplates", "ItemTemplates", "{6DDE34B2-83CC-460D-B786-43B52BAE8461}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +34,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{85221690-D5E2-4837-AAF2-B030800390E9} = {ED0B4367-F996-41CF-A3EF-1CDAB70C62CA}
+		{47178435-F776-4C3B-882C-273658BF0E76} = {6DDE34B2-83CC-460D-B786-43B52BAE8461}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6DA0B2C0-AD8D-479F-823D-72F628C79363}

@@ -3,7 +3,8 @@
     <Metadata>
         <Identity Id="RevitAPIExtension.273bd1c9-daa1-4553-a51f-0b7ea5c80f75" Version="1.0" Language="en-US" Publisher="Francisco Possetto" />
         <DisplayName>RevitAPIExtension</DisplayName>
-        <Description>Empty VSIX Project.</Description>
+        <Description xml:space="preserve">Revit API Extension For Visual Studio.</Description>
+        <Icon>TemplateIcon.png</Icon>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[16.0, 17.0)" />

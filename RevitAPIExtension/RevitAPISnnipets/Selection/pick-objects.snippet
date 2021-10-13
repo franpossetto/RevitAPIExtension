@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<CodeSnippet Format="1.0.0">
+    <Header>
+        <Title>Pick Objects, Elements.</Title>
+        <Author>Francisco Possetto</Author>
+        <Description>Pick Objects</Description>
+        <Shortcut>sl</Shortcut>
+    </Header>
+    <Snippet>
+		<Imports>
+			<Import>
+				<Namespace>Autodesk.Revit.UI</Namespace>
+				<Namespace>Autodesk.Revit.DB</Namespace>
+			</Import>
+		</Imports>
+    <Declarations>
+    <Literal Editable="true">
+        <ID>UIDocument</ID>
+        <ToolTip>UIDocument</ToolTip>
+        <Default>uiDoc</Default>
+    </Literal>
+    <Literal Editable="true">
+        <ID>ObjectType</ID>
+        <ToolTip>ObjectType</ToolTip>
+        <Default>Element</Default>
+    </Literal>  
+    </Declarations>
+    
+    <Code Language="CSharp">
+        <![CDATA[
+        IList<Reference> pickObjects = uiDoc.Selection.PickObjects(ObjectType.$ObjectType$);
+        ]]>
+    </Code>
+    </Snippet>
+</CodeSnippet>
+</CodeSnippets>

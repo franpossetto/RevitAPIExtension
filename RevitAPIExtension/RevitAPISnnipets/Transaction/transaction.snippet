@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<CodeSnippet Format="1.0.0">
+    <Header>
+        <Title>Transaction</Title>
+        <Author>Francisco Possetto</Author>
+        <Description>Create a simple transaction</Description>
+        <Shortcut>tr</Shortcut>
+    </Header>
+    <Snippet>
+		<Imports>
+			<Import>
+				<Namespace>Autodesk.Revit.DB</Namespace>
+			</Import>
+		</Imports>
+    <!-- <Object>  
+        <ID>document</ID>  
+        <Type>Autodesk.Revit.DB.Document</Type>  
+        <ToolTip>Replace with a Document in your application.</ToolTip>  
+        <Default>doc</Default>  
+    </Object> -->
+    <Declarations>
+    <Literal Editable="true">
+        <ID>t</ID>
+        <ToolTip>transaction</ToolTip>
+        <Default>t</Default>
+    </Literal>
+    <Literal Editable="true">
+        <ID>document</ID>
+        <ToolTip>document</ToolTip>
+        <Default>doc</Default>
+    </Literal> 
+    <Literal Editable="true">
+        <ID>name</ID>
+        <ToolTip>name</ToolTip>
+        <Default>Name</Default>
+    </Literal>   
+    </Declarations>
+    
+    <Code Language="CSharp">
+        <![CDATA[
+        using (Transaction $t$ = new Transaction($document$, "Transaction $name$"))
+        {
+            $t$.Start();
+            // DO something
+            $t$.Commit();
+        }
+        ]]>
+    </Code>
+
+    </Snippet>
+</CodeSnippet>
+</CodeSnippets>

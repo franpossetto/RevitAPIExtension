@@ -45,7 +45,7 @@ namespace $safeprojectname$
             pushDataButton.ToolTip = "The description that appears as a ToolTip for the item";
 
             PushButton pushButton = ribbonPanel.AddItem(pushDataButton) as PushButton;
-            System.Drawing.Bitmap ico = Properties.Resources.icon30;
+            System.Drawing.Bitmap ico = Properties.Resources.icon;
             System.Windows.Media.Imaging.BitmapSource icon30 = Ribbon.Icon(ico);
             pushButton.LargeImage = icon30;
 

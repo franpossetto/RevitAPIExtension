@@ -20,10 +20,13 @@
   <TemplateContent>
     <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" OpenInEditor="true">ExternalApplication.cs</ProjectItem>
+	  <ProjectItem ReplaceParameters="true" TargetFileName="Properties\Resources.Designer.cs">Resources.Designer.cs</ProjectItem>
+	  <ProjectItem ReplaceParameters="true" TargetFileName="Properties\Resources.resx">Resources.resx</ProjectItem>
+	  <ProjectItem ReplaceParameters="true" OpenInEditor="true">ExternalApplication.cs</ProjectItem>
 	  <ProjectItem ReplaceParameters="true" OpenInEditor="false">ExternalCommand.cs</ProjectItem>
 	  <ProjectItem ReplaceParameters="true" OpenInEditor="false">Ribbon.cs</ProjectItem>
 	  <ProjectItem ReplaceParameters="true" OpenInEditor="false">$safeprojectname$.addin</ProjectItem>
+	  <ProjectItem ReplaceParameters="true" TargetFileName="Resources\icon.png">icon.png</ProjectItem>
 	  
     </Project>
   </TemplateContent>

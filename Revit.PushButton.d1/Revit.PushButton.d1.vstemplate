@@ -30,4 +30,8 @@
 	  
     </Project>
   </TemplateContent>
+	<WizardExtension>
+		<Assembly>RevitAPIExtension, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=null</Assembly>
+		<FullClassName>RevitAPIExtension.Wizards.VersionWizard</FullClassName>
+	</WizardExtension>
 </VSTemplate>

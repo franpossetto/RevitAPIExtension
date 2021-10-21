@@ -73,7 +73,9 @@
 		<Compile Include="ExternalApplication.cs" />
 		<Compile Include="ExternalCommand.cs" />
 		<Compile Include="Ribbon.cs" />
-		<None Include="$safeprojectname$.addin "/>
+		<None Include="$safeprojectname$.addin ">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
 		<None Include="Resources\icon.png"/>
 
 		<Compile Include ="Properties\AssemblyInfo.cs" />

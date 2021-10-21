@@ -129,6 +129,20 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
+    <ProjectReference Include="..\Revit.EventApplication.d1\Revit.EventApplication.d1.csproj">
+      <Project>{766D3F4D-0BE1-41C5-8C29-D6B44B591E0C}</Project>
+      <Name>Revit.EventApplication.d1</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\Revit.EventDBApplication.d1\Revit.EventDBApplication.d1.csproj">
+      <Project>{EAEF180A-EAA6-4591-BCD4-259B4C4752FF}</Project>
+      <Name>Revit.EventDBApplication.d1</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
     <ProjectReference Include="..\Revit.PushButton.d1\Revit.PushButton.d1.csproj">
       <Project>{85221690-D5E2-4837-AAF2-B030800390E9}</Project>
       <Name>Revit.PushButton.d1</Name>

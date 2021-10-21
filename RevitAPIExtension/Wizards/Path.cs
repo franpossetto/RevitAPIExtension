@@ -7,7 +7,7 @@ namespace RevitAPIExtension.Wizards
         private Dictionary<string, string> _packageVersion;
         private Dictionary<string, string> _revitcopyPath;
         private Dictionary<string, string> _referencePath;
-        public string baseRefDir = "\\.nuget\\packages\\Revit_All_Main_Versions_API_x64";
+        public string baseRefDir = "\\.nuget\\packages\\revit_all_main_versions_api_x64";
 
         public Dictionary<string, string> PackageVersion
         {

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>$safeprojectname$</Name>
+    <FullClassName>$safeprojectname$.ExternalApplication</FullClassName>
+    <Text>$safeprojectname$</Text>
+    <Description>$safeprojectname$</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <Assembly>$safeprojectname$.dll</Assembly>
+    <AddInId>
+      $guid1$
+    </AddInId>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk, Inc, www.autodesk.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>
+

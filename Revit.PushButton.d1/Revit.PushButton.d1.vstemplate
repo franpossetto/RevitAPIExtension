@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>Revit PushButton (d1)</Name>
-    <Description>A revit push button.</Description>
+    <Name>Revit Push Button (d1)</Name>
+    <Description>Create a Basic Revit Command with a Push Button in the Ribbon Bar</Description>
     <Icon>Revit.PushButton.d1.png</Icon>
     <ProjectType>CSharp</ProjectType>
     <LanguageTag>csharp</LanguageTag>
@@ -14,7 +14,7 @@
     <SortOrder>1000</SortOrder>
     <TemplateID>acaa7cf6-c0f4-4820-8443-cae078ef8634</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>RevitPushButtond1</DefaultName>
+    <DefaultName>Revit_PushButton</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
   <TemplateContent>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>Revit External Application (d1)</Name>
+    <Description>Create a new External Application</Description>
+    <Icon>Revit.ExternalApplication.d1.png</Icon>
+    <TemplateID>bc365599-2ff8-4059-89ff-5aaffd5c47f8</TemplateID>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <DefaultName>ExternalApplication.cs</DefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <References>
+		<Reference>
+			<Assembly>RevitAPI</Assembly>
+		</Reference>
+		<Reference>
+			<Assembly>RevitAPIUI</Assembly>
+		</Reference>
+    </References>
+	  <ProjectItem SubType="" TargetFileName="$fileinputname$.cs" ReplaceParameters="true">ExternalApplication.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

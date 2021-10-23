@@ -122,9 +122,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Revit.ApplicationManifest.d1\Revit.ApplicationManifest.d1.csproj">
+      <Project>{48443B48-AA41-4BB4-9D80-ACE7050AD292}</Project>
+      <Name>Revit.ApplicationManifest.d1</Name>
+      <VSIXSubPath>ItemTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
     <ProjectReference Include="..\Revit.CommandManifest.d1\Revit.CommandManifest.d1.csproj">
       <Project>{47178435-F776-4C3B-882C-273658BF0E76}</Project>
       <Name>Revit.CommandManifest.d1</Name>
+      <VSIXSubPath>ItemTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\Revit.DBApplicationManifest.d1\Revit.DBApplicationManifest.d1.csproj">
+      <Project>{16336000-E07E-4A2A-98A2-80D5D893A62B}</Project>
+      <Name>Revit.DBApplicationManifest.d1</Name>
       <VSIXSubPath>ItemTemplates</VSIXSubPath>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
@@ -140,6 +154,20 @@
       <Project>{EAEF180A-EAA6-4591-BCD4-259B4C4752FF}</Project>
       <Name>Revit.EventDBApplication.d1</Name>
       <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\Revit.ExternalApplication.d1\Revit.ExternalApplication.d1.csproj">
+      <Project>{8F9A8015-125F-4F30-84CC-DC2395DE8062}</Project>
+      <Name>Revit.ExternalApplication.d1</Name>
+      <VSIXSubPath>ItemTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\Revit.ExternalCommand.d1\Revit.ExternalCommand.d1.csproj">
+      <Project>{3D5C75EE-6194-4FEE-8E83-915B186EEBDA}</Project>
+      <Name>Revit.ExternalCommand.d1</Name>
+      <VSIXSubPath>ItemTemplates</VSIXSubPath>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>

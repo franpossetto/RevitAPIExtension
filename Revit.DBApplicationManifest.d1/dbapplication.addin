@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+  <AddIn Type="DBApplication">
+    <Name>$safeitemname$</Name>
+    <FullClassName>$rootnamespace$.$safeitemname$</FullClassName>
+    <Text>$safeitemname$</Text>
+    <Description>$safeitemname$</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <Assembly>$rootnamespace$.dll</Assembly>
+    <AddInId>
+      $guid1$
+    </AddInId>
+    </AddIn>
+  </RevitAddIns>

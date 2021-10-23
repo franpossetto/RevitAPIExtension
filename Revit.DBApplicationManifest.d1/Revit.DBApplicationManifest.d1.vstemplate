@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>Revit DBApplication Manifest (d1)</Name>
+    <Description>Create a new DBApplication Manifest for your Revit Add-in</Description>
+    <Icon>Revit.DBApplicationManifest.d1.png</Icon>
+    <TemplateID>9fedd8c8-7111-4343-810b-b0f46229888b</TemplateID>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <DefaultName>DBapplication.addin</DefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <References>
+      <Reference>
+        <Assembly>System</Assembly>
+      </Reference>
+    </References>
+	  <ProjectItem SubType="" TargetFileName="$fileinputname$.addin" ReplaceParameters="true">dbapplication.addin</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>Revit External Command (d1)</Name>
+    <Description>Create a new External Command</Description>
+    <Icon>Revit.ExternalCommand.d1.png</Icon>
+    <TemplateID>f8e9d759-bca7-49ed-9e45-57cff86e49ce</TemplateID>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <DefaultName>Revit External Command.cs</DefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <References>
+		<Reference>
+			<Assembly>System</Assembly>
+		</Reference>
+		<Reference>
+			<Assembly>RevitAPI</Assembly>
+		</Reference>
+		<Reference>
+			<Assembly>RevitAPIUI</Assembly>
+		</Reference>
+    </References>
+	  <ProjectItem SubType="" TargetFileName="$fileinputname$.cs" ReplaceParameters="true">ExternalCommand.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

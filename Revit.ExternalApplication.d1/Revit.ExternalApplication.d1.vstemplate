@@ -13,6 +13,9 @@
   <TemplateContent>
     <References>
 		<Reference>
+			<Assembly>System</Assembly>
+		</Reference>
+		<Reference>
 			<Assembly>RevitAPI</Assembly>
 		</Reference>
 		<Reference>

@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RevitAPIExtension.Wizards"
-             mc:Ignorable="d" Title="Revit API Version Selector" Height="385.148" Width="789.191">
+             mc:Ignorable="d" Title="Revit API Version Selector" Height="385.148" Width="789.191" WindowStartupLocation="CenterScreen">
     <Grid Margin="10,32,2,7">
         <ComboBox x:Name="RevitAPIVerCB" HorizontalAlignment="Left" Margin="200,149,0,0" VerticalAlignment="Top" Width="302" Height="41">
             <ComboBoxItem Content="2017"/>

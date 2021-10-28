@@ -64,6 +64,8 @@ namespace RevitAPIExtension.Wizards
                        revitRefPath);
                 replacementsDictionary.Add("$packageRef$",
                         packageRef);
+                replacementsDictionary.Add("$revitver$",
+                    revitver);
                 
             }
             catch (Exception ex)

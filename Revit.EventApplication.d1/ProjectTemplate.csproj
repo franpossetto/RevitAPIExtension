@@ -12,6 +12,8 @@
 		<AssemblyName>$safeprojectname$</AssemblyName>
 		<TargetFrameworkVersion>v$targetframeworkversion$</TargetFrameworkVersion>
 		<FileAlignment>512</FileAlignment>
+		<StartAction>Program</StartAction>
+		<StartProgram>C:\Program Files\Autodesk\Revit $revitver$\Revit.exe</StartProgram>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 		<DebugSymbols>true</DebugSymbols>
@@ -90,5 +92,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-
+	<PropertyGroup>
+		<PostBuildEvent>copy "$(TargetDir)"."" "$(AppData)\Autodesk\Revit\Addins\$revitver$\"</PostBuildEvent>
+	</PropertyGroup>
  </Project>

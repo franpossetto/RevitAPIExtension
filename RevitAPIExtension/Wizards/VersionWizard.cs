@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TemplateWizard;
-using System.Windows.Forms;
+using System.Windows;
 using EnvDTE;
 
 namespace RevitAPIExtension.Wizards
@@ -45,26 +45,26 @@ namespace RevitAPIExtension.Wizards
             {
                 // Display a form to the user. The form collects
                 // input for the custom message.
-                using (VersionWizardForm revitDataForm = new VersionWizardForm())
-                {
-                    revitDataForm.ShowDialog();
-                    revitver = revitDataForm.revitAPIVersion;
+                VersionWizardWPF revitDataForm = new VersionWizardWPF();
+                
+                revitDataForm.ShowDialog();
+                revitver = revitDataForm.revitAPIVersion;
 
-                    // class containing all project paths
-                    Path path = new Path();
-                    // enviroment variable for C:\Users\%username%
-                    string home = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+                // class containing all project paths
+                Path path = new Path();
+                // enviroment variable for C:\Users\%username%
+                string home = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
 
-                    // making the complete path and the package reference
-                    revitRefPath = home + path.baseRefDir + path.ReferencePath[revitver];
-                    packageRef =  path.PackageVersion[revitver];
+                // making the complete path and the package reference
+                revitRefPath = home + path.baseRefDir + path.ReferencePath[revitver];
+                packageRef = path.PackageVersion[revitver];
 
-                    // Add custom parameters.
-                    replacementsDictionary.Add("$revitRefPath$",
-                        revitRefPath);
-                    replacementsDictionary.Add("$packageRef$",
+                // Add custom parameters.
+                replacementsDictionary.Add("$revitRefPath$",
+                       revitRefPath);
+                replacementsDictionary.Add("$packageRef$",
                         packageRef);
-                }
+                
             }
             catch (Exception ex)
             {

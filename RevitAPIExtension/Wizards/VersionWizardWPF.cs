@@ -43,5 +43,10 @@ namespace RevitAPIExtension.Wizards
             revitapiver = RevitAPIVerCB.Text;
             this.Close();
         }
+
+        private void UseLatest_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -4,15 +4,34 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RevitAPIExtension.Wizards"
-             mc:Ignorable="d" Title="Revit API Version Selector" Height="238" Width="379" WindowStartupLocation="CenterScreen">
-    <Grid Margin="10,32,2,7">
-        <ComboBox x:Name="RevitAPIVerCB" HorizontalAlignment="Left" Margin="55,50,0,0" VerticalAlignment="Top" Width="130" Height="20">
-            <ComboBoxItem Content="2017"/>
-            <ComboBoxItem Content="2018"/>
-            <ComboBoxItem Content="2019"/>
-            <ComboBoxItem Content="2020"/>
-            <ComboBoxItem Content="2021"/>
-        </ComboBox>
-        <Button x:Name="Accept" Content="Accept"  HorizontalAlignment="Left" Margin="210,100,0,0" VerticalAlignment="Top" Width="99" Height="23" Click="Accept_Click"/>
-    </Grid>
+             mc:Ignorable="d" Title="Single version wizard" Height="275" Width="300" WindowStartupLocation="CenterScreen">
+    <Border Padding="10">
+        <StackPanel>
+            <TextBlock Margin="0,10,0,10" Text="Select one Revit API version"/>
+            <CheckBox x:Name="revitAvailableVersions" Content="Show only Revit installed versions." Margin="0,0,0,10" IsChecked="False"/>
+            <ComboBox x:Name="RevitAPIVerCB">
+                    <ComboBoxItem Content="2017"/>
+                    <ComboBoxItem Content="2018"/>
+                    <ComboBoxItem Content="2019"/>
+                    <ComboBoxItem Content="2020"/>
+                    <ComboBoxItem Content="2021"/>
+                </ComboBox>
+            <TextBlock Margin="0,20,0,10" Text="Referencing Revit API Files"/>
+            <RadioButton x:Name="nuGet_RatioButton" Content="Using nuGet Packages" Margin="0,0,0,10" IsChecked=""/>
+            <RadioButton x:Name="localRef_RatioButton" Content="Using Local References" Margin="0,0,0,10"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Margin="0,10,5,0">
+                    <Button x:Name="UseLatest" Content="Use Latest w/nuGet" Height="25" Click="UseLatest_Click"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="5,10,0,0">
+                    <Button x:Name="Accept" Content="Ok" Height="25" Click="Accept_Click"/>
+                </StackPanel>
+                </Grid>
+        </StackPanel>
+    </Border>
 </Window>

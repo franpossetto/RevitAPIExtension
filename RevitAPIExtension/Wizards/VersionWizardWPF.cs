@@ -20,7 +20,8 @@ namespace RevitAPIExtension.Wizards
     /// </summary>
     public partial class VersionWizardWPF : Window
     {
-        private static string revitapiver;
+        private string _revitapiver;
+        private bool _nugetpacksel;
         public VersionWizardWPF()
         {
             InitializeComponent();
@@ -35,23 +36,40 @@ namespace RevitAPIExtension.Wizards
         {
             get
             {
-                return RevitAPIVerCB.Text;
+                return _revitapiver;
             }
             set
             {
-                revitapiver = value;
+                _revitapiver = value;
+            }
+        }
+
+        public bool IsNugetSel
+        {
+            get
+            {
+                return _nugetpacksel;
+            }
+            set
+            {
+                _nugetpacksel = value;
             }
         }
 
         private void Accept_Click(object sender, RoutedEventArgs e)
         {
-            revitapiver = RevitAPIVerCB.Text;
+            _revitapiver = RevitAPIVerCB.Text;
             this.Close();
         }
 
         private void UseLatest_Click(object sender, RoutedEventArgs e)
         {
-
+            _revitapiver = "2021";
+            if (!IsNugetSel)
+            {
+                _nugetpacksel = true;
+            }
+            this.Close();
         }
 
         private void revitAvailableVersions_Checked(object sender, RoutedEventArgs e)
@@ -75,6 +93,16 @@ namespace RevitAPIExtension.Wizards
             RevitAPIVerCB.Items.Add("2019");
             RevitAPIVerCB.Items.Add("2020");
             RevitAPIVerCB.Items.Add("2021");
+        }
+
+        private void nuGet_RatioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            _nugetpacksel = true;
+        }
+
+        private void localRef_RatioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            _nugetpacksel = false;
         }
     }
 }

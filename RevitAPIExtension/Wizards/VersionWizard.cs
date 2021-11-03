@@ -14,6 +14,8 @@ namespace RevitAPIExtension.Wizards
         private string revitver;
         private string revitRefPath;
         private string packageRef;
+        private bool isnugetsel;
+        private bool islocalsel;
 
         // This method is called before opening any item that
         // has the OpenInEditor attribute.
@@ -52,20 +54,33 @@ namespace RevitAPIExtension.Wizards
 
                 // class containing all project paths
                 Path path = new Path();
-                // enviroment variable for C:\Users\%username%
-                string home = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-
-                // making the complete path and the package reference
-                revitRefPath = home + path.baseRefDir + path.ReferencePath[revitver];
                 packageRef = path.PackageVersion[revitver];
+                if (revitDataForm.IsNugetSel)
+                {
+                    // enviroment variable for C:\Users\%username%
+                    string home = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+
+                    // making the complete path and the package reference
+                    revitRefPath = home + path.baseRefDir + path.ReferencePath[revitver];
+                    
+                }
+                else
+                {
+
+                    // making the complete path and the package reference
+                    revitRefPath = path.RevitDllPath[revitver].Replace("\\RevitAPI.dll", "");
+                }
+                isnugetsel = revitDataForm.IsNugetSel;
 
                 // Add custom parameters.
                 replacementsDictionary.Add("$revitRefPath$",
-                       revitRefPath);
+                    revitRefPath);
                 replacementsDictionary.Add("$packageRef$",
-                        packageRef);
+                    packageRef);
                 replacementsDictionary.Add("$revitver$",
                     revitver);
+                replacementsDictionary.Add("$isnugetsel$",
+                    isnugetsel.ToString());
                 
             }
             catch (Exception ex)

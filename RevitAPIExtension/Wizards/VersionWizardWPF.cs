@@ -24,6 +24,11 @@ namespace RevitAPIExtension.Wizards
         public VersionWizardWPF()
         {
             InitializeComponent();
+            RevitAPIVerCB.Items.Add("2017");
+            RevitAPIVerCB.Items.Add("2018");
+            RevitAPIVerCB.Items.Add("2019");
+            RevitAPIVerCB.Items.Add("2020");
+            RevitAPIVerCB.Items.Add("2021");
         }
 
         public string revitAPIVersion
@@ -47,6 +52,29 @@ namespace RevitAPIExtension.Wizards
         private void UseLatest_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void revitAvailableVersions_Checked(object sender, RoutedEventArgs e)
+        {
+            Path path = new Path();
+            List<string> versions = path.unavalaibleVersions();
+            {
+                for (int i = 0; i < versions.Count; i++)
+                {
+                    RevitAPIVerCB.Items.Remove(versions[i]);
+
+                }
+            }
+        }
+
+        private void revitAvailableVersions_UnChecked(object sender, RoutedEventArgs e)
+        {
+            RevitAPIVerCB.Items.Clear();
+            RevitAPIVerCB.Items.Add("2017");
+            RevitAPIVerCB.Items.Add("2018");
+            RevitAPIVerCB.Items.Add("2019");
+            RevitAPIVerCB.Items.Add("2020");
+            RevitAPIVerCB.Items.Add("2021");
         }
     }
 }

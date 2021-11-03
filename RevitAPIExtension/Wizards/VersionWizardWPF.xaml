@@ -12,8 +12,8 @@
             <ComboBox x:Name="RevitAPIVerCB">
             </ComboBox>
             <TextBlock Margin="0,20,0,10" Text="Referencing Revit API Files"/>
-            <RadioButton x:Name="nuGet_RatioButton" Content="Using nuGet Packages" Margin="0,0,0,10"/>
-            <RadioButton x:Name="localRef_RatioButton" Content="Using Local References" Margin="0,0,0,10"/>
+            <RadioButton GroupName="refs" x:Name="nuGet_RatioButton" Content="Using nuGet Packages" Margin="0,0,0,10" Checked="nuGet_RatioButton_Checked"/>
+            <RadioButton GroupName="refs" x:Name="localRef_RatioButton" Content="Using Local References" Margin="0,0,0,10" Checked="localRef_RatioButton_Checked"/>
 
             <Grid>
                 <Grid.ColumnDefinitions>

@@ -22,6 +22,7 @@ namespace RevitAPIExtension.Wizards
     {
         private string _revitapiver;
         private bool _nugetpacksel;
+        private bool _bothunchecked = true;
         public VersionWizardWPF()
         {
             InitializeComponent();
@@ -56,10 +57,38 @@ namespace RevitAPIExtension.Wizards
             }
         }
 
+        public bool AreBothUnchecked
+        {
+            get
+            {
+                return _bothunchecked;
+            }
+            set
+            {
+                _bothunchecked = value;
+            }
+        }
         private void Accept_Click(object sender, RoutedEventArgs e)
         {
+            if (RevitAPIVerCB.Text == "")
+            {
+                MessageBox.Show("Please select one Revit API version", 
+                                "Warning", 
+                                MessageBoxButton.OK, 
+                                MessageBoxImage.Warning);
+            }
+            else if(AreBothUnchecked)
+            {
+                MessageBox.Show("There is no reference for Revit API files",
+                                "Warning",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Warning);
+            }
+            else
+            {
             _revitapiver = RevitAPIVerCB.Text;
             this.Close();
+            }
         }
 
         private void UseLatest_Click(object sender, RoutedEventArgs e)
@@ -98,11 +127,13 @@ namespace RevitAPIExtension.Wizards
         private void nuGet_RatioButton_Checked(object sender, RoutedEventArgs e)
         {
             _nugetpacksel = true;
+            _bothunchecked = false;
         }
 
         private void localRef_RatioButton_Checked(object sender, RoutedEventArgs e)
         {
             _nugetpacksel = false;
+            _bothunchecked = false;
         }
     }
 }

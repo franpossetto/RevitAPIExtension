@@ -61,9 +61,11 @@
 		<Reference Include="System.Data"/>
 		<Reference Include="System.Xml"/>
 	</ItemGroup>
+	$if$ ($isnugetsel$ == True)
 	<ItemGroup>
 		<PackageReference Include="Revit_All_Main_Versions_API_x64" version="$packageRef$" />
 	</ItemGroup>
+	$endif$
 	<ItemGroup>
 		<Compile Include="ExternalApplication.cs" />
 		<None Include="$safeprojectname$.addin ">
